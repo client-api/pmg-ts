@@ -57,19 +57,13 @@ import { QuarantineWelcomelistApi } from './apis/QuarantineWelcomelistApi';
 import { QuarantineWhitelistApi } from './apis/QuarantineWhitelistApi';
 import { StatisticsApi } from './apis/StatisticsApi';
 import { VersionApi } from './apis/VersionApi';
-import {
-    connectTerminal as wsConnectTerminal,
-    connectVnc as wsConnectVnc,
-    TerminalSession,
-    TerminalTarget,
-    TerminalCallbacks,
-    VncSession,
-    VncTarget,
-    VncCallbacks,
-} from './WebSocket';
 
 export class Client {
-    protected config: Configuration;
+    // Renamed from `config` to dodge collisions with per-tag method names —
+    // PBS/PMG/PDM all expose a `Config` tag, which would emit a `config()`
+    // method on this class. Using `_configuration` keeps the property
+    // distinct from any tag-derived accessor.
+    protected _configuration: Configuration;
 
     protected _access?: AccessApi;
     protected _accessAuthRealm?: AccessAuthRealmApi;
@@ -127,237 +121,227 @@ export class Client {
     protected _version?: VersionApi;
 
     constructor(config: Configuration) {
-        this.config = config;
+        this._configuration = config;
     }
 
     configuration(): Configuration {
-        return this.config;
+        return this._configuration;
     }
 
     access(): AccessApi {
-        return this._access ??= new AccessApi(this.config);
+        return this._access ??= new AccessApi(this._configuration);
     }
 
     accessAuthRealm(): AccessAuthRealmApi {
-        return this._accessAuthRealm ??= new AccessAuthRealmApi(this.config);
+        return this._accessAuthRealm ??= new AccessAuthRealmApi(this._configuration);
     }
 
     accessOidc(): AccessOidcApi {
-        return this._accessOidc ??= new AccessOidcApi(this.config);
+        return this._accessOidc ??= new AccessOidcApi(this._configuration);
     }
 
     accessTfa(): AccessTfaApi {
-        return this._accessTfa ??= new AccessTfaApi(this.config);
+        return this._accessTfa ??= new AccessTfaApi(this._configuration);
     }
 
     accessTicket(): AccessTicketApi {
-        return this._accessTicket ??= new AccessTicketApi(this.config);
+        return this._accessTicket ??= new AccessTicketApi(this._configuration);
     }
 
     accessUsers(): AccessUsersApi {
-        return this._accessUsers ??= new AccessUsersApi(this.config);
+        return this._accessUsers ??= new AccessUsersApi(this._configuration);
     }
 
     config(): ConfigApi {
-        return this._config ??= new ConfigApi(this.config);
+        return this._config ??= new ConfigApi(this._configuration);
     }
 
     configAcme(): ConfigAcmeApi {
-        return this._configAcme ??= new ConfigAcmeApi(this.config);
+        return this._configAcme ??= new ConfigAcmeApi(this._configuration);
     }
 
     configAdmin(): ConfigAdminApi {
-        return this._configAdmin ??= new ConfigAdminApi(this.config);
+        return this._configAdmin ??= new ConfigAdminApi(this._configuration);
     }
 
     configClamav(): ConfigClamavApi {
-        return this._configClamav ??= new ConfigClamavApi(this.config);
+        return this._configClamav ??= new ConfigClamavApi(this._configuration);
     }
 
     configCluster(): ConfigClusterApi {
-        return this._configCluster ??= new ConfigClusterApi(this.config);
+        return this._configCluster ??= new ConfigClusterApi(this._configuration);
     }
 
     configCustomscores(): ConfigCustomscoresApi {
-        return this._configCustomscores ??= new ConfigCustomscoresApi(this.config);
+        return this._configCustomscores ??= new ConfigCustomscoresApi(this._configuration);
     }
 
     configDkim(): ConfigDkimApi {
-        return this._configDkim ??= new ConfigDkimApi(this.config);
+        return this._configDkim ??= new ConfigDkimApi(this._configuration);
     }
 
     configDomains(): ConfigDomainsApi {
-        return this._configDomains ??= new ConfigDomainsApi(this.config);
+        return this._configDomains ??= new ConfigDomainsApi(this._configuration);
     }
 
     configFetchmail(): ConfigFetchmailApi {
-        return this._configFetchmail ??= new ConfigFetchmailApi(this.config);
+        return this._configFetchmail ??= new ConfigFetchmailApi(this._configuration);
     }
 
     configLdap(): ConfigLdapApi {
-        return this._configLdap ??= new ConfigLdapApi(this.config);
+        return this._configLdap ??= new ConfigLdapApi(this._configuration);
     }
 
     configMail(): ConfigMailApi {
-        return this._configMail ??= new ConfigMailApi(this.config);
+        return this._configMail ??= new ConfigMailApi(this._configuration);
     }
 
     configMynetworks(): ConfigMynetworksApi {
-        return this._configMynetworks ??= new ConfigMynetworksApi(this.config);
+        return this._configMynetworks ??= new ConfigMynetworksApi(this._configuration);
     }
 
     configPbs(): ConfigPbsApi {
-        return this._configPbs ??= new ConfigPbsApi(this.config);
+        return this._configPbs ??= new ConfigPbsApi(this._configuration);
     }
 
     configRuledb(): ConfigRuledbApi {
-        return this._configRuledb ??= new ConfigRuledbApi(this.config);
+        return this._configRuledb ??= new ConfigRuledbApi(this._configuration);
     }
 
     configSpam(): ConfigSpamApi {
-        return this._configSpam ??= new ConfigSpamApi(this.config);
+        return this._configSpam ??= new ConfigSpamApi(this._configuration);
     }
 
     configSpamquar(): ConfigSpamquarApi {
-        return this._configSpamquar ??= new ConfigSpamquarApi(this.config);
+        return this._configSpamquar ??= new ConfigSpamquarApi(this._configuration);
     }
 
     configTfa(): ConfigTfaApi {
-        return this._configTfa ??= new ConfigTfaApi(this.config);
+        return this._configTfa ??= new ConfigTfaApi(this._configuration);
     }
 
     configTlsInboundDomains(): ConfigTlsInboundDomainsApi {
-        return this._configTlsInboundDomains ??= new ConfigTlsInboundDomainsApi(this.config);
+        return this._configTlsInboundDomains ??= new ConfigTlsInboundDomainsApi(this._configuration);
     }
 
     configTlspolicy(): ConfigTlspolicyApi {
-        return this._configTlspolicy ??= new ConfigTlspolicyApi(this.config);
+        return this._configTlspolicy ??= new ConfigTlspolicyApi(this._configuration);
     }
 
     configTransport(): ConfigTransportApi {
-        return this._configTransport ??= new ConfigTransportApi(this.config);
+        return this._configTransport ??= new ConfigTransportApi(this._configuration);
     }
 
     configVirusquar(): ConfigVirusquarApi {
-        return this._configVirusquar ??= new ConfigVirusquarApi(this.config);
+        return this._configVirusquar ??= new ConfigVirusquarApi(this._configuration);
     }
 
     configWelcomelist(): ConfigWelcomelistApi {
-        return this._configWelcomelist ??= new ConfigWelcomelistApi(this.config);
+        return this._configWelcomelist ??= new ConfigWelcomelistApi(this._configuration);
     }
 
     configWhitelist(): ConfigWhitelistApi {
-        return this._configWhitelist ??= new ConfigWhitelistApi(this.config);
+        return this._configWhitelist ??= new ConfigWhitelistApi(this._configuration);
     }
 
     nodes(): NodesApi {
-        return this._nodes ??= new NodesApi(this.config);
+        return this._nodes ??= new NodesApi(this._configuration);
     }
 
     nodesApt(): NodesAptApi {
-        return this._nodesApt ??= new NodesAptApi(this.config);
+        return this._nodesApt ??= new NodesAptApi(this._configuration);
     }
 
     nodesBackup(): NodesBackupApi {
-        return this._nodesBackup ??= new NodesBackupApi(this.config);
+        return this._nodesBackup ??= new NodesBackupApi(this._configuration);
     }
 
     nodesCertificates(): NodesCertificatesApi {
-        return this._nodesCertificates ??= new NodesCertificatesApi(this.config);
+        return this._nodesCertificates ??= new NodesCertificatesApi(this._configuration);
     }
 
     nodesClamav(): NodesClamavApi {
-        return this._nodesClamav ??= new NodesClamavApi(this.config);
+        return this._nodesClamav ??= new NodesClamavApi(this._configuration);
     }
 
     nodesConfig(): NodesConfigApi {
-        return this._nodesConfig ??= new NodesConfigApi(this.config);
+        return this._nodesConfig ??= new NodesConfigApi(this._configuration);
     }
 
     nodesDns(): NodesDnsApi {
-        return this._nodesDns ??= new NodesDnsApi(this.config);
+        return this._nodesDns ??= new NodesDnsApi(this._configuration);
     }
 
     nodesNetwork(): NodesNetworkApi {
-        return this._nodesNetwork ??= new NodesNetworkApi(this.config);
+        return this._nodesNetwork ??= new NodesNetworkApi(this._configuration);
     }
 
     nodesPbs(): NodesPbsApi {
-        return this._nodesPbs ??= new NodesPbsApi(this.config);
+        return this._nodesPbs ??= new NodesPbsApi(this._configuration);
     }
 
     nodesPostfix(): NodesPostfixApi {
-        return this._nodesPostfix ??= new NodesPostfixApi(this.config);
+        return this._nodesPostfix ??= new NodesPostfixApi(this._configuration);
     }
 
     nodesServices(): NodesServicesApi {
-        return this._nodesServices ??= new NodesServicesApi(this.config);
+        return this._nodesServices ??= new NodesServicesApi(this._configuration);
     }
 
     nodesSpamassassin(): NodesSpamassassinApi {
-        return this._nodesSpamassassin ??= new NodesSpamassassinApi(this.config);
+        return this._nodesSpamassassin ??= new NodesSpamassassinApi(this._configuration);
     }
 
     nodesStatus(): NodesStatusApi {
-        return this._nodesStatus ??= new NodesStatusApi(this.config);
+        return this._nodesStatus ??= new NodesStatusApi(this._configuration);
     }
 
     nodesSubscription(): NodesSubscriptionApi {
-        return this._nodesSubscription ??= new NodesSubscriptionApi(this.config);
+        return this._nodesSubscription ??= new NodesSubscriptionApi(this._configuration);
     }
 
     nodesTasks(): NodesTasksApi {
-        return this._nodesTasks ??= new NodesTasksApi(this.config);
+        return this._nodesTasks ??= new NodesTasksApi(this._configuration);
     }
 
     nodesTime(): NodesTimeApi {
-        return this._nodesTime ??= new NodesTimeApi(this.config);
+        return this._nodesTime ??= new NodesTimeApi(this._configuration);
     }
 
     nodesTracker(): NodesTrackerApi {
-        return this._nodesTracker ??= new NodesTrackerApi(this.config);
+        return this._nodesTracker ??= new NodesTrackerApi(this._configuration);
     }
 
     quarantine(): QuarantineApi {
-        return this._quarantine ??= new QuarantineApi(this.config);
+        return this._quarantine ??= new QuarantineApi(this._configuration);
     }
 
     quarantineBlacklist(): QuarantineBlacklistApi {
-        return this._quarantineBlacklist ??= new QuarantineBlacklistApi(this.config);
+        return this._quarantineBlacklist ??= new QuarantineBlacklistApi(this._configuration);
     }
 
     quarantineBlocklist(): QuarantineBlocklistApi {
-        return this._quarantineBlocklist ??= new QuarantineBlocklistApi(this.config);
+        return this._quarantineBlocklist ??= new QuarantineBlocklistApi(this._configuration);
     }
 
     quarantineContent(): QuarantineContentApi {
-        return this._quarantineContent ??= new QuarantineContentApi(this.config);
+        return this._quarantineContent ??= new QuarantineContentApi(this._configuration);
     }
 
     quarantineWelcomelist(): QuarantineWelcomelistApi {
-        return this._quarantineWelcomelist ??= new QuarantineWelcomelistApi(this.config);
+        return this._quarantineWelcomelist ??= new QuarantineWelcomelistApi(this._configuration);
     }
 
     quarantineWhitelist(): QuarantineWhitelistApi {
-        return this._quarantineWhitelist ??= new QuarantineWhitelistApi(this.config);
+        return this._quarantineWhitelist ??= new QuarantineWhitelistApi(this._configuration);
     }
 
     statistics(): StatisticsApi {
-        return this._statistics ??= new StatisticsApi(this.config);
+        return this._statistics ??= new StatisticsApi(this._configuration);
     }
 
     version(): VersionApi {
-        return this._version ??= new VersionApi(this.config);
+        return this._version ??= new VersionApi(this._configuration);
     }
 
-
-    /** Open a terminal session against a node, QEMU VM, or LXC container. */
-    connectTerminal(target: TerminalTarget, callbacks: TerminalCallbacks = {}): Promise<TerminalSession> {
-        return wsConnectTerminal(this.config, target, callbacks);
-    }
-
-    /** Open a VNC session against a node shell, QEMU VM, or LXC container. */
-    connectVnc(target: VncTarget, callbacks: VncCallbacks = {}): Promise<VncSession> {
-        return wsConnectVnc(this.config, target, callbacks);
-    }
 }
