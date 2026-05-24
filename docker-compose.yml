@@ -1,0 +1,25 @@
+# Local-dev convenience. CI uses client-api/proxmox-docker-action@v1 instead.
+#
+# PMG listens on 8006 (same default port as PVE — they don't co-exist in
+# practice, so port collision is a non-issue). Run-flag shape is kept
+# identical across every language repo (pve-ts, pbs-ts, pmg-ts, pdm-ts)
+# so a contributor reads this file once and recognises it everywhere.
+
+services:
+  pmg-test:
+    image: ghcr.io/client-api/proxmox-docker/pmg-test:9.0
+    container_name: pmg-test
+    privileged: true
+    devices:
+      - /dev/kvm
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+    ports:
+      - "8006:8006"
+    healthcheck:
+      test: ["CMD", "curl", "-fsk", "https://localhost:8006/api2/json/version"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
