@@ -40,7 +40,9 @@ export function PmgNodesStatusModeEnumFromJSON(json: any): PmgNodesStatusModeEnu
 }
 
 export function PmgNodesStatusModeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesStatusModeEnum {
+
     return json as PmgNodesStatusModeEnum;
+
 }
 
 export function PmgNodesStatusModeEnumToJSON(value?: PmgNodesStatusModeEnum | null): any {

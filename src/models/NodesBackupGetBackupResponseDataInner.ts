@@ -32,14 +32,14 @@ export interface NodesBackupGetBackupResponseDataInner {
      * @type {number}
      * @memberof NodesBackupGetBackupResponseDataInner
      */
-    size: number;
+    size: bigint | string | number;
 
     /**
      * Backup timestamp (Unix epoch).
      * @type {number}
      * @memberof NodesBackupGetBackupResponseDataInner
      */
-    timestamp: number;
+    timestamp: bigint | string | number;
 
 }
 
@@ -70,9 +70,9 @@ export function NodesBackupGetBackupResponseDataInnerFromJSONTyped(json: any, ig
         
         'filename': json['filename'],
         
-        'size': json['size'],
+        'size': BigInt(json['size']),
         
-        'timestamp': json['timestamp'],
+        'timestamp': BigInt(json['timestamp']),
         
     };
 }
@@ -91,9 +91,9 @@ export function NodesBackupGetBackupResponseDataInnerToJSONTyped(value?: NodesBa
         
         'filename': value['filename'],
         
-        'size': value['size'],
+        'size': String(value['size']),
         
-        'timestamp': value['timestamp'],
+        'timestamp': String(value['timestamp']),
         
     };
 }

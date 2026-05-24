@@ -75,7 +75,7 @@ export interface ConfigSpamUpdateSpamSectionRequest {
      * @type {number}
      * @memberof ConfigSpamUpdateSpamSectionRequest
      */
-    maxspamsize?: number;
+    maxspamsize?: bigint | string | number;
 
     /**
      * Enable real time blocklists (RBL) checks.
@@ -159,7 +159,7 @@ export function ConfigSpamUpdateSpamSectionRequestFromJSONTyped(json: any, ignor
         
         'languages': json['languages'] == null ? undefined : json['languages'],
         
-        'maxspamsize': json['maxspamsize'] == null ? undefined : json['maxspamsize'],
+        'maxspamsize': json['maxspamsize'] == null ? undefined : BigInt(json['maxspamsize']),
         
         'rblChecks': json['rbl_checks'] == null ? undefined : PmgBooleanFromJSON(json['rbl_checks']),
         
@@ -198,7 +198,7 @@ export function ConfigSpamUpdateSpamSectionRequestToJSONTyped(value?: ConfigSpam
         
         'languages': value['languages'],
         
-        'maxspamsize': value['maxspamsize'],
+        'maxspamsize': value['maxspamsize'] == null ? undefined : String(value['maxspamsize']),
         
         'rbl_checks': PmgBooleanToJSON(value['rblChecks']),
         

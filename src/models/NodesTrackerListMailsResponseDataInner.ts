@@ -88,7 +88,7 @@ export interface NodesTrackerListMailsResponseDataInner {
      * @type {number}
      * @memberof NodesTrackerListMailsResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Receiver email address.
@@ -152,7 +152,7 @@ export function NodesTrackerListMailsResponseDataInnerFromJSONTyped(json: any, i
         
         'size': json['size'] == null ? undefined : json['size'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'to': json['to'],
         
@@ -189,7 +189,7 @@ export function NodesTrackerListMailsResponseDataInnerToJSONTyped(value?: NodesT
         
         'size': value['size'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'to': value['to'],
         

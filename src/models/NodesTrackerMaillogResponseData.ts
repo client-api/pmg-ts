@@ -95,7 +95,7 @@ export interface NodesTrackerMaillogResponseData {
      * @type {number}
      * @memberof NodesTrackerMaillogResponseData
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Receiver email address.
@@ -163,7 +163,7 @@ export function NodesTrackerMaillogResponseDataFromJSONTyped(json: any, ignoreDi
         
         'size': json['size'] == null ? undefined : json['size'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'to': json['to'],
         
@@ -202,7 +202,7 @@ export function NodesTrackerMaillogResponseDataToJSONTyped(value?: NodesTrackerM
         
         'size': value['size'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'to': value['to'],
         

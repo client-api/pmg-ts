@@ -48,7 +48,9 @@ export function PmgBondModeEnumFromJSON(json: any): PmgBondModeEnum {
 }
 
 export function PmgBondModeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgBondModeEnum {
+
     return json as PmgBondModeEnum;
+
 }
 
 export function PmgBondModeEnumToJSON(value?: PmgBondModeEnum | null): any {

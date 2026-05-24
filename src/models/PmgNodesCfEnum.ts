@@ -40,7 +40,9 @@ export function PmgNodesCfEnumFromJSON(json: any): PmgNodesCfEnum {
 }
 
 export function PmgNodesCfEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesCfEnum {
+
     return json as PmgNodesCfEnum;
+
 }
 
 export function PmgNodesCfEnumToJSON(value?: PmgNodesCfEnum | null): any {

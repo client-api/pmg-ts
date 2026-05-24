@@ -102,14 +102,14 @@ export interface StatisticsMailResponseData {
      * @type {number}
      * @memberof StatisticsMailResponseData
      */
-    pregreetRejects: number;
+    pregreetRejects: bigint | string | number;
 
     /**
      * Number of RBL rejects.
      * @type {number}
      * @memberof StatisticsMailResponseData
      */
-    rblRejects: number;
+    rblRejects: bigint | string | number;
 
     /**
      * Incoming spam mails.
@@ -225,9 +225,9 @@ export function StatisticsMailResponseDataFromJSONTyped(json: any, ignoreDiscrim
         
         'junkOut': json['junk_out'],
         
-        'pregreetRejects': json['pregreet_rejects'],
+        'pregreetRejects': BigInt(json['pregreet_rejects']),
         
-        'rblRejects': json['rbl_rejects'],
+        'rblRejects': BigInt(json['rbl_rejects']),
         
         'spamcountIn': json['spamcount_in'],
         
@@ -276,9 +276,9 @@ export function StatisticsMailResponseDataToJSONTyped(value?: StatisticsMailResp
         
         'junk_out': value['junkOut'],
         
-        'pregreet_rejects': value['pregreetRejects'],
+        'pregreet_rejects': String(value['pregreetRejects']),
         
-        'rbl_rejects': value['rblRejects'],
+        'rbl_rejects': String(value['rblRejects']),
         
         'spamcount_in': value['spamcountIn'],
         

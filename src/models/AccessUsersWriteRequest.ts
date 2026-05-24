@@ -75,7 +75,7 @@ export interface AccessUsersWriteRequest {
      * @type {number}
      * @memberof AccessUsersWriteRequest
      */
-    expire?: number;
+    expire?: bigint | string | number;
 
     /**
      * First name.
@@ -164,7 +164,7 @@ export function AccessUsersWriteRequestFromJSONTyped(json: any, ignoreDiscrimina
         
         'enable': json['enable'] == null ? undefined : PmgBooleanFromJSON(json['enable']),
         
-        'expire': json['expire'] == null ? undefined : json['expire'],
+        'expire': json['expire'] == null ? undefined : BigInt(json['expire']),
         
         'firstname': json['firstname'] == null ? undefined : json['firstname'],
         
@@ -203,7 +203,7 @@ export function AccessUsersWriteRequestToJSONTyped(value?: AccessUsersWriteReque
         
         'enable': PmgBooleanToJSON(value['enable']),
         
-        'expire': value['expire'],
+        'expire': value['expire'] == null ? undefined : String(value['expire']),
         
         'firstname': value['firstname'],
         

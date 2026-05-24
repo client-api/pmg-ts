@@ -40,7 +40,9 @@ export function PmgConfigMailProtocolEnumFromJSON(json: any): PmgConfigMailProto
 }
 
 export function PmgConfigMailProtocolEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigMailProtocolEnum {
+
     return json as PmgConfigMailProtocolEnum;
+
 }
 
 export function PmgConfigMailProtocolEnumToJSON(value?: PmgConfigMailProtocolEnum | null): any {

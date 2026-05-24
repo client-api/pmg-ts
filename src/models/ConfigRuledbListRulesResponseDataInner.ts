@@ -25,7 +25,7 @@ export interface ConfigRuledbListRulesResponseDataInner {
      * @type {number}
      * @memberof ConfigRuledbListRulesResponseDataInner
      */
-    id: number;
+    id: bigint | string | number;
 
 }
 
@@ -50,7 +50,7 @@ export function ConfigRuledbListRulesResponseDataInnerFromJSONTyped(json: any, i
     return {
         
         
-        'id': json['id'],
+        'id': BigInt(json['id']),
         
     };
 }
@@ -67,7 +67,7 @@ export function ConfigRuledbListRulesResponseDataInnerToJSONTyped(value?: Config
     return {
         
         
-        'id': value['id'],
+        'id': String(value['id']),
         
     };
 }

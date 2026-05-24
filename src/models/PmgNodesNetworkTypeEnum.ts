@@ -48,7 +48,9 @@ export function PmgNodesNetworkTypeEnumFromJSON(json: any): PmgNodesNetworkTypeE
 }
 
 export function PmgNodesNetworkTypeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesNetworkTypeEnum {
+
     return json as PmgNodesNetworkTypeEnum;
+
 }
 
 export function PmgNodesNetworkTypeEnumToJSON(value?: PmgNodesNetworkTypeEnum | null): any {

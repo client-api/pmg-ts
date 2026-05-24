@@ -25,7 +25,7 @@ export interface ConfigRuledbAddActionGroupRequest {
      * @type {number}
      * @memberof ConfigRuledbAddActionGroupRequest
      */
-    ogroup: number;
+    ogroup: bigint | string | number;
 
 }
 
@@ -50,7 +50,7 @@ export function ConfigRuledbAddActionGroupRequestFromJSONTyped(json: any, ignore
     return {
         
         
-        'ogroup': json['ogroup'],
+        'ogroup': BigInt(json['ogroup']),
         
     };
 }
@@ -67,7 +67,7 @@ export function ConfigRuledbAddActionGroupRequestToJSONTyped(value?: ConfigRuled
     return {
         
         
-        'ogroup': value['ogroup'],
+        'ogroup': String(value['ogroup']),
         
     };
 }

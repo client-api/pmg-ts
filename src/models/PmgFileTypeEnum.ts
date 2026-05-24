@@ -40,7 +40,9 @@ export function PmgFileTypeEnumFromJSON(json: any): PmgFileTypeEnum {
 }
 
 export function PmgFileTypeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgFileTypeEnum {
+
     return json as PmgFileTypeEnum;
+
 }
 
 export function PmgFileTypeEnumToJSON(value?: PmgFileTypeEnum | null): any {

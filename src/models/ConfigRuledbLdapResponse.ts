@@ -25,7 +25,7 @@ export interface ConfigRuledbLdapResponse {
      * @type {number}
      * @memberof ConfigRuledbLdapResponse
      */
-    data: number;
+    data: bigint | string | number;
 
     /**
      * Optional total count, present for paginated list responses.
@@ -66,7 +66,7 @@ export function ConfigRuledbLdapResponseFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         
-        'data': json['data'],
+        'data': BigInt(json['data']),
         
         'total': json['total'] == null ? undefined : json['total'],
         
@@ -87,7 +87,7 @@ export function ConfigRuledbLdapResponseToJSONTyped(value?: ConfigRuledbLdapResp
     return {
         
         
-        'data': value['data'],
+        'data': String(value['data']),
         
         'total': value['total'],
         

@@ -40,7 +40,7 @@ export interface NodesSpamassassinRulesStatusResponseDataInner {
      * @type {number}
      * @memberof NodesSpamassassinRulesStatusResponseDataInner
      */
-    lastUpdated?: number;
+    lastUpdated?: bigint | string | number;
 
     /**
      * 
@@ -95,7 +95,7 @@ export function NodesSpamassassinRulesStatusResponseDataInnerFromJSONTyped(json:
         
         'channel': json['channel'],
         
-        'lastUpdated': json['last_updated'] == null ? undefined : json['last_updated'],
+        'lastUpdated': json['last_updated'] == null ? undefined : BigInt(json['last_updated']),
         
         'updateAvail': PmgBooleanFromJSON(json['update_avail']),
         
@@ -120,7 +120,7 @@ export function NodesSpamassassinRulesStatusResponseDataInnerToJSONTyped(value?:
         
         'channel': value['channel'],
         
-        'last_updated': value['lastUpdated'],
+        'last_updated': value['lastUpdated'] == null ? undefined : String(value['lastUpdated']),
         
         'update_avail': PmgBooleanToJSON(value['updateAvail']),
         

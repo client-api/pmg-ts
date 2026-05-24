@@ -40,7 +40,7 @@ export interface ConfigDkimSetSelectorRequest {
      * @type {number}
      * @memberof ConfigDkimSetSelectorRequest
      */
-    keysize: number;
+    keysize: bigint | string | number;
 
     /**
      * DKIM Selector
@@ -79,7 +79,7 @@ export function ConfigDkimSetSelectorRequestFromJSONTyped(json: any, ignoreDiscr
         
         'force': json['force'] == null ? undefined : PmgBooleanFromJSON(json['force']),
         
-        'keysize': json['keysize'],
+        'keysize': BigInt(json['keysize']),
         
         'selector': json['selector'],
         
@@ -100,7 +100,7 @@ export function ConfigDkimSetSelectorRequestToJSONTyped(value?: ConfigDkimSetSel
         
         'force': PmgBooleanToJSON(value['force']),
         
-        'keysize': value['keysize'],
+        'keysize': String(value['keysize']),
         
         'selector': value['selector'],
         

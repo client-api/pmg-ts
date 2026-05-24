@@ -42,7 +42,9 @@ export function PmgAutocreateRoleEnumFromJSON(json: any): PmgAutocreateRoleEnum 
 }
 
 export function PmgAutocreateRoleEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgAutocreateRoleEnum {
+
     return json as PmgAutocreateRoleEnum;
+
 }
 
 export function PmgAutocreateRoleEnumToJSON(value?: PmgAutocreateRoleEnum | null): any {

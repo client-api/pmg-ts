@@ -43,7 +43,9 @@ export function PmgNodesPostfixSortfieldEnumFromJSON(json: any): PmgNodesPostfix
 }
 
 export function PmgNodesPostfixSortfieldEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesPostfixSortfieldEnum {
+
     return json as PmgNodesPostfixSortfieldEnum;
+
 }
 
 export function PmgNodesPostfixSortfieldEnumToJSON(value?: PmgNodesPostfixSortfieldEnum | null): any {

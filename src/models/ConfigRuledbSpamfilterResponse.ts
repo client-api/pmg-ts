@@ -25,7 +25,7 @@ export interface ConfigRuledbSpamfilterResponse {
      * @type {number}
      * @memberof ConfigRuledbSpamfilterResponse
      */
-    data: number;
+    data: bigint | string | number;
 
     /**
      * Optional total count, present for paginated list responses.
@@ -66,7 +66,7 @@ export function ConfigRuledbSpamfilterResponseFromJSONTyped(json: any, ignoreDis
     return {
         
         
-        'data': json['data'],
+        'data': BigInt(json['data']),
         
         'total': json['total'] == null ? undefined : json['total'],
         
@@ -87,7 +87,7 @@ export function ConfigRuledbSpamfilterResponseToJSONTyped(value?: ConfigRuledbSp
     return {
         
         
-        'data': value['data'],
+        'data': String(value['data']),
         
         'total': value['total'],
         

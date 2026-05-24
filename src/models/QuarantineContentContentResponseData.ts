@@ -25,7 +25,7 @@ export interface QuarantineContentContentResponseData {
      * @type {number}
      * @memberof QuarantineContentContentResponseData
      */
-    bytes: number;
+    bytes: bigint | string | number;
 
     /**
      * Raw email data (first 4096 bytes). Useful for preview. NOTE: The  'htmlmail' formatter displays the whole email.
@@ -102,7 +102,7 @@ export interface QuarantineContentContentResponseData {
      * @type {number}
      * @memberof QuarantineContentContentResponseData
      */
-    time: number;
+    time: bigint | string | number;
 
 }
 
@@ -148,7 +148,7 @@ export function QuarantineContentContentResponseDataFromJSONTyped(json: any, ign
     return {
         
         
-        'bytes': json['bytes'],
+        'bytes': BigInt(json['bytes']),
         
         'content': json['content'],
         
@@ -170,7 +170,7 @@ export function QuarantineContentContentResponseDataFromJSONTyped(json: any, ign
         
         'subject': json['subject'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
     };
 }
@@ -187,7 +187,7 @@ export function QuarantineContentContentResponseDataToJSONTyped(value?: Quaranti
     return {
         
         
-        'bytes': value['bytes'],
+        'bytes': String(value['bytes']),
         
         'content': value['content'],
         
@@ -209,7 +209,7 @@ export function QuarantineContentContentResponseDataToJSONTyped(value?: Quaranti
         
         'subject': value['subject'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
     };
 }

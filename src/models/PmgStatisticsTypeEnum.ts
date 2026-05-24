@@ -41,7 +41,9 @@ export function PmgStatisticsTypeEnumFromJSON(json: any): PmgStatisticsTypeEnum 
 }
 
 export function PmgStatisticsTypeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgStatisticsTypeEnum {
+
     return json as PmgStatisticsTypeEnum;
+
 }
 
 export function PmgStatisticsTypeEnumToJSON(value?: PmgStatisticsTypeEnum | null): any {

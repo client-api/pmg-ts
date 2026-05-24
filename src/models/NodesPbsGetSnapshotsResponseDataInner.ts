@@ -46,7 +46,7 @@ export interface NodesPbsGetSnapshotsResponseDataInner {
      * @type {number}
      * @memberof NodesPbsGetSnapshotsResponseDataInner
      */
-    size: number;
+    size: bigint | string | number;
 
 }
 
@@ -83,7 +83,7 @@ export function NodesPbsGetSnapshotsResponseDataInnerFromJSONTyped(json: any, ig
         
         'ctime': json['ctime'],
         
-        'size': json['size'],
+        'size': BigInt(json['size']),
         
     };
 }
@@ -106,7 +106,7 @@ export function NodesPbsGetSnapshotsResponseDataInnerToJSONTyped(value?: NodesPb
         
         'ctime': value['ctime'],
         
-        'size': value['size'],
+        'size': String(value['size']),
         
     };
 }

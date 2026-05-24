@@ -42,7 +42,9 @@ export function PmgQueueEnumFromJSON(json: any): PmgQueueEnum {
 }
 
 export function PmgQueueEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgQueueEnum {
+
     return json as PmgQueueEnum;
+
 }
 
 export function PmgQueueEnumToJSON(value?: PmgQueueEnum | null): any {

@@ -41,7 +41,9 @@ export function PmgNotifyEnumFromJSON(json: any): PmgNotifyEnum {
 }
 
 export function PmgNotifyEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNotifyEnum {
+
     return json as PmgNotifyEnum;
+
 }
 
 export function PmgNotifyEnumToJSON(value?: PmgNotifyEnum | null): any {

@@ -25,7 +25,7 @@ export interface QuarantineVirusResponseDataInner {
      * @type {number}
      * @memberof QuarantineVirusResponseDataInner
      */
-    bytes: number;
+    bytes: bigint | string | number;
 
     /**
      * SMTP envelope sender.
@@ -74,7 +74,7 @@ export interface QuarantineVirusResponseDataInner {
      * @type {number}
      * @memberof QuarantineVirusResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Virus name.
@@ -121,7 +121,7 @@ export function QuarantineVirusResponseDataInnerFromJSONTyped(json: any, ignoreD
     return {
         
         
-        'bytes': json['bytes'],
+        'bytes': BigInt(json['bytes']),
         
         'envelopeSender': json['envelope_sender'],
         
@@ -135,7 +135,7 @@ export function QuarantineVirusResponseDataInnerFromJSONTyped(json: any, ignoreD
         
         'subject': json['subject'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'virusname': json['virusname'],
         
@@ -154,7 +154,7 @@ export function QuarantineVirusResponseDataInnerToJSONTyped(value?: QuarantineVi
     return {
         
         
-        'bytes': value['bytes'],
+        'bytes': String(value['bytes']),
         
         'envelope_sender': value['envelopeSender'],
         
@@ -168,7 +168,7 @@ export function QuarantineVirusResponseDataInnerToJSONTyped(value?: QuarantineVi
         
         'subject': value['subject'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'virusname': value['virusname'],
         

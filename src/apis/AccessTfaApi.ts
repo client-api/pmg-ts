@@ -389,7 +389,12 @@ export class AccessTfaApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        // Optional body: only emit Content-Type when the body is actually provided.
+        // PVE/PMG Perl HTTP server rejects empty bodies with Content-Type: application/json
+        // ("malformed JSON string"), and other Proxmox products are equally fussy.
+        if (requestParameters['accessTfaUpdateTfaEntryRequest'] != null) {
+            headerParameters['Content-Type'] = 'application/json';
+        }
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["CSRFPreventionToken"] = await this.configuration.apiKey("CSRFPreventionToken"); // CSRFPreventionToken authentication

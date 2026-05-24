@@ -46,14 +46,14 @@ export interface NodesCertificatesUploadCustomCertResponseData {
      * @type {number}
      * @memberof NodesCertificatesUploadCustomCertResponseData
      */
-    notafter?: number;
+    notafter?: bigint | string | number;
 
     /**
      * Certificate's notBefore timestamp (UNIX epoch).
      * @type {number}
      * @memberof NodesCertificatesUploadCustomCertResponseData
      */
-    notbefore?: number;
+    notbefore?: bigint | string | number;
 
     /**
      * Certificate in PEM format
@@ -67,7 +67,7 @@ export interface NodesCertificatesUploadCustomCertResponseData {
      * @type {number}
      * @memberof NodesCertificatesUploadCustomCertResponseData
      */
-    publicKeyBits?: number;
+    publicKeyBits?: bigint | string | number;
 
     /**
      * Certificate's public key algorithm
@@ -127,13 +127,13 @@ export function NodesCertificatesUploadCustomCertResponseDataFromJSONTyped(json:
         
         'issuer': json['issuer'] == null ? undefined : json['issuer'],
         
-        'notafter': json['notafter'] == null ? undefined : json['notafter'],
+        'notafter': json['notafter'] == null ? undefined : BigInt(json['notafter']),
         
-        'notbefore': json['notbefore'] == null ? undefined : json['notbefore'],
+        'notbefore': json['notbefore'] == null ? undefined : BigInt(json['notbefore']),
         
         'pem': json['pem'] == null ? undefined : json['pem'],
         
-        'publicKeyBits': json['public-key-bits'] == null ? undefined : json['public-key-bits'],
+        'publicKeyBits': json['public-key-bits'] == null ? undefined : BigInt(json['public-key-bits']),
         
         'publicKeyType': json['public-key-type'] == null ? undefined : json['public-key-type'],
         
@@ -162,13 +162,13 @@ export function NodesCertificatesUploadCustomCertResponseDataToJSONTyped(value?:
         
         'issuer': value['issuer'],
         
-        'notafter': value['notafter'],
+        'notafter': value['notafter'] == null ? undefined : String(value['notafter']),
         
-        'notbefore': value['notbefore'],
+        'notbefore': value['notbefore'] == null ? undefined : String(value['notbefore']),
         
         'pem': value['pem'],
         
-        'public-key-bits': value['publicKeyBits'],
+        'public-key-bits': value['publicKeyBits'] == null ? undefined : String(value['publicKeyBits']),
         
         'public-key-type': value['publicKeyType'],
         

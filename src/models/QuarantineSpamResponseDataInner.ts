@@ -25,7 +25,7 @@ export interface QuarantineSpamResponseDataInner {
      * @type {number}
      * @memberof QuarantineSpamResponseDataInner
      */
-    bytes: number;
+    bytes: bigint | string | number;
 
     /**
      * SMTP envelope sender.
@@ -81,7 +81,7 @@ export interface QuarantineSpamResponseDataInner {
      * @type {number}
      * @memberof QuarantineSpamResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
 }
 
@@ -121,7 +121,7 @@ export function QuarantineSpamResponseDataInnerFromJSONTyped(json: any, ignoreDi
     return {
         
         
-        'bytes': json['bytes'],
+        'bytes': BigInt(json['bytes']),
         
         'envelopeSender': json['envelope_sender'],
         
@@ -137,7 +137,7 @@ export function QuarantineSpamResponseDataInnerFromJSONTyped(json: any, ignoreDi
         
         'subject': json['subject'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
     };
 }
@@ -154,7 +154,7 @@ export function QuarantineSpamResponseDataInnerToJSONTyped(value?: QuarantineSpa
     return {
         
         
-        'bytes': value['bytes'],
+        'bytes': String(value['bytes']),
         
         'envelope_sender': value['envelopeSender'],
         
@@ -170,7 +170,7 @@ export function QuarantineSpamResponseDataInnerToJSONTyped(value?: QuarantineSpa
         
         'subject': value['subject'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
     };
 }

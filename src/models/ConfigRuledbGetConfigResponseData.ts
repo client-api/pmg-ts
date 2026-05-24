@@ -25,7 +25,7 @@ export interface ConfigRuledbGetConfigResponseData {
      * @type {number}
      * @memberof ConfigRuledbGetConfigResponseData
      */
-    id: number;
+    id: bigint | string | number;
 
     /**
      * 
@@ -68,7 +68,7 @@ export function ConfigRuledbGetConfigResponseDataFromJSONTyped(json: any, ignore
     return {
         
         
-        'id': json['id'],
+        'id': BigInt(json['id']),
         
         'info': json['info'],
         
@@ -89,7 +89,7 @@ export function ConfigRuledbGetConfigResponseDataToJSONTyped(value?: ConfigRuled
     return {
         
         
-        'id': value['id'],
+        'id': String(value['id']),
         
         'info': value['info'],
         

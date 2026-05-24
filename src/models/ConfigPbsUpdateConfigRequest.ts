@@ -82,42 +82,42 @@ export interface ConfigPbsUpdateConfigRequest {
      * @type {number}
      * @memberof ConfigPbsUpdateConfigRequest
      */
-    keepDaily?: number;
+    keepDaily?: bigint | string | number;
 
     /**
      * Keep backups for the last <N> different hours. If there is more than one backup for a single hour, only the latest one is kept.
      * @type {number}
      * @memberof ConfigPbsUpdateConfigRequest
      */
-    keepHourly?: number;
+    keepHourly?: bigint | string | number;
 
     /**
      * Keep the last <N> backups.
      * @type {number}
      * @memberof ConfigPbsUpdateConfigRequest
      */
-    keepLast?: number;
+    keepLast?: bigint | string | number;
 
     /**
      * Keep backups for the last <N> different months. If there is more than one backup for a single month, only the latest one is kept.
      * @type {number}
      * @memberof ConfigPbsUpdateConfigRequest
      */
-    keepMonthly?: number;
+    keepMonthly?: bigint | string | number;
 
     /**
      * Keep backups for the last <N> different weeks. If there ismore than one backup for a single week, only the latest one is kept.
      * @type {number}
      * @memberof ConfigPbsUpdateConfigRequest
      */
-    keepWeekly?: number;
+    keepWeekly?: bigint | string | number;
 
     /**
      * Keep backups for the last <N> different years. If there is more than one backup for a single year, only the latest one is kept.
      * @type {number}
      * @memberof ConfigPbsUpdateConfigRequest
      */
-    keepYearly?: number;
+    keepYearly?: bigint | string | number;
 
     /**
      * Proxmox Backup Server namespace in the datastore, defaults to the root NS.
@@ -214,17 +214,17 @@ export function ConfigPbsUpdateConfigRequestFromJSONTyped(json: any, ignoreDiscr
         
         'includeStatistics': json['include-statistics'] == null ? undefined : PmgBooleanFromJSON(json['include-statistics']),
         
-        'keepDaily': json['keep-daily'] == null ? undefined : json['keep-daily'],
+        'keepDaily': json['keep-daily'] == null ? undefined : BigInt(json['keep-daily']),
         
-        'keepHourly': json['keep-hourly'] == null ? undefined : json['keep-hourly'],
+        'keepHourly': json['keep-hourly'] == null ? undefined : BigInt(json['keep-hourly']),
         
-        'keepLast': json['keep-last'] == null ? undefined : json['keep-last'],
+        'keepLast': json['keep-last'] == null ? undefined : BigInt(json['keep-last']),
         
-        'keepMonthly': json['keep-monthly'] == null ? undefined : json['keep-monthly'],
+        'keepMonthly': json['keep-monthly'] == null ? undefined : BigInt(json['keep-monthly']),
         
-        'keepWeekly': json['keep-weekly'] == null ? undefined : json['keep-weekly'],
+        'keepWeekly': json['keep-weekly'] == null ? undefined : BigInt(json['keep-weekly']),
         
-        'keepYearly': json['keep-yearly'] == null ? undefined : json['keep-yearly'],
+        'keepYearly': json['keep-yearly'] == null ? undefined : BigInt(json['keep-yearly']),
         
         'namespace': json['namespace'] == null ? undefined : json['namespace'],
         
@@ -265,17 +265,17 @@ export function ConfigPbsUpdateConfigRequestToJSONTyped(value?: ConfigPbsUpdateC
         
         'include-statistics': PmgBooleanToJSON(value['includeStatistics']),
         
-        'keep-daily': value['keepDaily'],
+        'keep-daily': value['keepDaily'] == null ? undefined : String(value['keepDaily']),
         
-        'keep-hourly': value['keepHourly'],
+        'keep-hourly': value['keepHourly'] == null ? undefined : String(value['keepHourly']),
         
-        'keep-last': value['keepLast'],
+        'keep-last': value['keepLast'] == null ? undefined : String(value['keepLast']),
         
-        'keep-monthly': value['keepMonthly'],
+        'keep-monthly': value['keepMonthly'] == null ? undefined : String(value['keepMonthly']),
         
-        'keep-weekly': value['keepWeekly'],
+        'keep-weekly': value['keepWeekly'] == null ? undefined : String(value['keepWeekly']),
         
-        'keep-yearly': value['keepYearly'],
+        'keep-yearly': value['keepYearly'] == null ? undefined : String(value['keepYearly']),
         
         'namespace': value['namespace'],
         

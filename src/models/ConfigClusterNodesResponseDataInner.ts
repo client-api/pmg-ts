@@ -25,7 +25,7 @@ export interface ConfigClusterNodesResponseDataInner {
      * @type {number}
      * @memberof ConfigClusterNodesResponseDataInner
      */
-    cid: number;
+    cid: bigint | string | number;
 
     /**
      * 
@@ -104,7 +104,7 @@ export function ConfigClusterNodesResponseDataInnerFromJSONTyped(json: any, igno
     return {
         
         
-        'cid': json['cid'],
+        'cid': BigInt(json['cid']),
         
         'fingerprint': json['fingerprint'],
         
@@ -133,7 +133,7 @@ export function ConfigClusterNodesResponseDataInnerToJSONTyped(value?: ConfigClu
     return {
         
         
-        'cid': value['cid'],
+        'cid': String(value['cid']),
         
         'fingerprint': value['fingerprint'],
         

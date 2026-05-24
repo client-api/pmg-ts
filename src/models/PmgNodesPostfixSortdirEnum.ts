@@ -40,7 +40,9 @@ export function PmgNodesPostfixSortdirEnumFromJSON(json: any): PmgNodesPostfixSo
 }
 
 export function PmgNodesPostfixSortdirEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesPostfixSortdirEnum {
+
     return json as PmgNodesPostfixSortdirEnum;
+
 }
 
 export function PmgNodesPostfixSortdirEnumToJSON(value?: PmgNodesPostfixSortdirEnum | null): any {

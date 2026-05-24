@@ -46,7 +46,7 @@ export interface ConfigClusterAddNodeRequest {
      * @type {number}
      * @memberof ConfigClusterAddNodeRequest
      */
-    maxcid?: number;
+    maxcid?: bigint | string | number;
 
     /**
      * Node name.
@@ -100,7 +100,7 @@ export function ConfigClusterAddNodeRequestFromJSONTyped(json: any, ignoreDiscri
         
         'ip': json['ip'],
         
-        'maxcid': json['maxcid'] == null ? undefined : json['maxcid'],
+        'maxcid': json['maxcid'] == null ? undefined : BigInt(json['maxcid']),
         
         'name': json['name'],
         
@@ -127,7 +127,7 @@ export function ConfigClusterAddNodeRequestToJSONTyped(value?: ConfigClusterAddN
         
         'ip': value['ip'],
         
-        'maxcid': value['maxcid'],
+        'maxcid': value['maxcid'] == null ? undefined : String(value['maxcid']),
         
         'name': value['name'],
         

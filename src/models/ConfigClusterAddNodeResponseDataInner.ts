@@ -25,7 +25,7 @@ export interface ConfigClusterAddNodeResponseDataInner {
      * @type {number}
      * @memberof ConfigClusterAddNodeResponseDataInner
      */
-    cid: number;
+    cid: bigint | string | number;
 
 }
 
@@ -50,7 +50,7 @@ export function ConfigClusterAddNodeResponseDataInnerFromJSONTyped(json: any, ig
     return {
         
         
-        'cid': json['cid'],
+        'cid': BigInt(json['cid']),
         
     };
 }
@@ -67,7 +67,7 @@ export function ConfigClusterAddNodeResponseDataInnerToJSONTyped(value?: ConfigC
     return {
         
         
-        'cid': value['cid'],
+        'cid': String(value['cid']),
         
     };
 }

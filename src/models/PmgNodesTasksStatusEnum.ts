@@ -40,7 +40,9 @@ export function PmgNodesTasksStatusEnumFromJSON(json: any): PmgNodesTasksStatusE
 }
 
 export function PmgNodesTasksStatusEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesTasksStatusEnum {
+
     return json as PmgNodesTasksStatusEnum;
+
 }
 
 export function PmgNodesTasksStatusEnumToJSON(value?: PmgNodesTasksStatusEnum | null): any {

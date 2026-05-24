@@ -60,21 +60,21 @@ export interface StatisticsMailcountResponseDataInner {
      * @type {number}
      * @memberof StatisticsMailcountResponseDataInner
      */
-    index: number;
+    index: bigint | string | number;
 
     /**
      * PREGREET reject count.
      * @type {number}
      * @memberof StatisticsMailcountResponseDataInner
      */
-    pregreetRejects: number;
+    pregreetRejects: bigint | string | number;
 
     /**
      * Number of RBL rejects.
      * @type {number}
      * @memberof StatisticsMailcountResponseDataInner
      */
-    rblRejects: number;
+    rblRejects: bigint | string | number;
 
     /**
      * Incoming spam mails (spamcount_in + glcount + spfcount + rbl_rejects + pregreet_rejects).
@@ -95,7 +95,7 @@ export interface StatisticsMailcountResponseDataInner {
      * @type {number}
      * @memberof StatisticsMailcountResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Number of incoming virus mails.
@@ -168,17 +168,17 @@ export function StatisticsMailcountResponseDataInnerFromJSONTyped(json: any, ign
         
         'countOut': json['count_out'],
         
-        'index': json['index'],
+        'index': BigInt(json['index']),
         
-        'pregreetRejects': json['pregreet_rejects'],
+        'pregreetRejects': BigInt(json['pregreet_rejects']),
         
-        'rblRejects': json['rbl_rejects'],
+        'rblRejects': BigInt(json['rbl_rejects']),
         
         'spamcountIn': json['spamcount_in'],
         
         'spamcountOut': json['spamcount_out'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'viruscountIn': json['viruscount_in'],
         
@@ -209,17 +209,17 @@ export function StatisticsMailcountResponseDataInnerToJSONTyped(value?: Statisti
         
         'count_out': value['countOut'],
         
-        'index': value['index'],
+        'index': String(value['index']),
         
-        'pregreet_rejects': value['pregreetRejects'],
+        'pregreet_rejects': String(value['pregreetRejects']),
         
-        'rbl_rejects': value['rblRejects'],
+        'rbl_rejects': String(value['rblRejects']),
         
         'spamcount_in': value['spamcountIn'],
         
         'spamcount_out': value['spamcountOut'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'viruscount_in': value['viruscountIn'],
         

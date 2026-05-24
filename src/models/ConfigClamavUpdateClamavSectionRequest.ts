@@ -40,21 +40,21 @@ export interface ConfigClamavUpdateClamavSectionRequest {
      * @type {number}
      * @memberof ConfigClamavUpdateClamavSectionRequest
      */
-    archivemaxfiles?: number;
+    archivemaxfiles?: bigint | string | number;
 
     /**
      * Nested archives are scanned recursively, e.g. if a ZIP archive contains a TAR  file,  all files within it will also be scanned. This options specifies how deeply the process should be continued. Warning: setting this limit too high may result in severe damage to the system.
      * @type {number}
      * @memberof ConfigClamavUpdateClamavSectionRequest
      */
-    archivemaxrec?: number;
+    archivemaxrec?: bigint | string | number;
 
     /**
      * Files larger than this limit (in bytes) won't be scanned.
      * @type {number}
      * @memberof ConfigClamavUpdateClamavSectionRequest
      */
-    archivemaxsize?: number;
+    archivemaxsize?: bigint | string | number;
 
     /**
      * ClamAV database mirror server.
@@ -82,14 +82,14 @@ export interface ConfigClamavUpdateClamavSectionRequest {
      * @type {number}
      * @memberof ConfigClamavUpdateClamavSectionRequest
      */
-    maxcccount?: number;
+    maxcccount?: bigint | string | number;
 
     /**
      * Sets the maximum amount of data (in bytes) to be scanned for each input file.
      * @type {number}
      * @memberof ConfigClamavUpdateClamavSectionRequest
      */
-    maxscansize?: number;
+    maxscansize?: bigint | string | number;
 
     /**
      * Enables ScriptedUpdates (incremental download of signatures)
@@ -133,11 +133,11 @@ export function ConfigClamavUpdateClamavSectionRequestFromJSONTyped(json: any, i
         
         'archiveblockencrypted': json['archiveblockencrypted'] == null ? undefined : PmgBooleanFromJSON(json['archiveblockencrypted']),
         
-        'archivemaxfiles': json['archivemaxfiles'] == null ? undefined : json['archivemaxfiles'],
+        'archivemaxfiles': json['archivemaxfiles'] == null ? undefined : BigInt(json['archivemaxfiles']),
         
-        'archivemaxrec': json['archivemaxrec'] == null ? undefined : json['archivemaxrec'],
+        'archivemaxrec': json['archivemaxrec'] == null ? undefined : BigInt(json['archivemaxrec']),
         
-        'archivemaxsize': json['archivemaxsize'] == null ? undefined : json['archivemaxsize'],
+        'archivemaxsize': json['archivemaxsize'] == null ? undefined : BigInt(json['archivemaxsize']),
         
         'dbmirror': json['dbmirror'] == null ? undefined : json['dbmirror'],
         
@@ -145,9 +145,9 @@ export function ConfigClamavUpdateClamavSectionRequestFromJSONTyped(json: any, i
         
         'digest': json['digest'] == null ? undefined : json['digest'],
         
-        'maxcccount': json['maxcccount'] == null ? undefined : json['maxcccount'],
+        'maxcccount': json['maxcccount'] == null ? undefined : BigInt(json['maxcccount']),
         
-        'maxscansize': json['maxscansize'] == null ? undefined : json['maxscansize'],
+        'maxscansize': json['maxscansize'] == null ? undefined : BigInt(json['maxscansize']),
         
         'scriptedupdates': json['scriptedupdates'] == null ? undefined : PmgBooleanFromJSON(json['scriptedupdates']),
         
@@ -168,11 +168,11 @@ export function ConfigClamavUpdateClamavSectionRequestToJSONTyped(value?: Config
         
         'archiveblockencrypted': PmgBooleanToJSON(value['archiveblockencrypted']),
         
-        'archivemaxfiles': value['archivemaxfiles'],
+        'archivemaxfiles': value['archivemaxfiles'] == null ? undefined : String(value['archivemaxfiles']),
         
-        'archivemaxrec': value['archivemaxrec'],
+        'archivemaxrec': value['archivemaxrec'] == null ? undefined : String(value['archivemaxrec']),
         
-        'archivemaxsize': value['archivemaxsize'],
+        'archivemaxsize': value['archivemaxsize'] == null ? undefined : String(value['archivemaxsize']),
         
         'dbmirror': value['dbmirror'],
         
@@ -180,9 +180,9 @@ export function ConfigClamavUpdateClamavSectionRequestToJSONTyped(value?: Config
         
         'digest': value['digest'],
         
-        'maxcccount': value['maxcccount'],
+        'maxcccount': value['maxcccount'] == null ? undefined : String(value['maxcccount']),
         
-        'maxscansize': value['maxscansize'],
+        'maxscansize': value['maxscansize'] == null ? undefined : String(value['maxscansize']),
         
         'scriptedupdates': PmgBooleanToJSON(value['scriptedupdates']),
         

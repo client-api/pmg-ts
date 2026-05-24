@@ -40,7 +40,9 @@ export function PmgNodesPostfixActionEnumFromJSON(json: any): PmgNodesPostfixAct
 }
 
 export function PmgNodesPostfixActionEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesPostfixActionEnum {
+
     return json as PmgNodesPostfixActionEnum;
+
 }
 
 export function PmgNodesPostfixActionEnumToJSON(value?: PmgNodesPostfixActionEnum | null): any {

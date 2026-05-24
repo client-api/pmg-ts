@@ -25,7 +25,7 @@ export interface StatisticsRecentreceiversResponseDataInner {
      * @type {number}
      * @memberof StatisticsRecentreceiversResponseDataInner
      */
-    count: number;
+    count: bigint | string | number;
 
     /**
      * The receiver
@@ -59,7 +59,7 @@ export function StatisticsRecentreceiversResponseDataInnerFromJSONTyped(json: an
     return {
         
         
-        'count': json['count'],
+        'count': BigInt(json['count']),
         
         'receiver': json['receiver'],
         
@@ -78,7 +78,7 @@ export function StatisticsRecentreceiversResponseDataInnerToJSONTyped(value?: St
     return {
         
         
-        'count': value['count'],
+        'count': String(value['count']),
         
         'receiver': value['receiver'],
         

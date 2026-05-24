@@ -68,14 +68,14 @@ export interface ConfigMailUpdateMailSectionRequest {
      * @type {number}
      * @memberof ConfigMailUpdateMailSectionRequest
      */
-    connCountLimit?: number;
+    connCountLimit?: bigint | string | number;
 
     /**
      * The maximal number of connection attempts any client is allowed to make to this service per minute. To disable this feature, specify a limit of 0.
      * @type {number}
      * @memberof ConfigMailUpdateMailSectionRequest
      */
-    connRateLimit?: number;
+    connRateLimit?: bigint | string | number;
 
     /**
      * A list of settings you want to delete.
@@ -103,14 +103,14 @@ export interface ConfigMailUpdateMailSectionRequest {
      * @type {number}
      * @memberof ConfigMailUpdateMailSectionRequest
      */
-    dnsblThreshold?: number;
+    dnsblThreshold?: bigint | string | number;
 
     /**
      * SMTP delay warning time (in hours). (postfix option `delay_warning_time`)
      * @type {number}
      * @memberof ConfigMailUpdateMailSectionRequest
      */
-    dwarning?: number;
+    dwarning?: bigint | string | number;
 
     /**
      * SMTP port number for incoming mail (untrusted). This must be a different number than 'int_port'.
@@ -208,14 +208,14 @@ export interface ConfigMailUpdateMailSectionRequest {
      * @type {number}
      * @memberof ConfigMailUpdateMailSectionRequest
      */
-    maxsize?: number;
+    maxsize?: bigint | string | number;
 
     /**
      * The maximal number of message delivery requests that any client is allowed to make to this service per minute.To disable this feature, specify a limit of 0.
      * @type {number}
      * @memberof ConfigMailUpdateMailSectionRequest
      */
-    messageRateLimit?: number;
+    messageRateLimit?: bigint | string | number;
 
     /**
      * Send out NDR when mail gets blocked
@@ -391,9 +391,9 @@ export function ConfigMailUpdateMailSectionRequestFromJSONTyped(json: any, ignor
         
         'beforeQueueFiltering': json['before_queue_filtering'] == null ? undefined : PmgBooleanFromJSON(json['before_queue_filtering']),
         
-        'connCountLimit': json['conn_count_limit'] == null ? undefined : json['conn_count_limit'],
+        'connCountLimit': json['conn_count_limit'] == null ? undefined : BigInt(json['conn_count_limit']),
         
-        'connRateLimit': json['conn_rate_limit'] == null ? undefined : json['conn_rate_limit'],
+        'connRateLimit': json['conn_rate_limit'] == null ? undefined : BigInt(json['conn_rate_limit']),
         
         '_delete': json['delete'] == null ? undefined : json['delete'],
         
@@ -401,9 +401,9 @@ export function ConfigMailUpdateMailSectionRequestFromJSONTyped(json: any, ignor
         
         'dnsblSites': json['dnsbl_sites'] == null ? undefined : json['dnsbl_sites'],
         
-        'dnsblThreshold': json['dnsbl_threshold'] == null ? undefined : json['dnsbl_threshold'],
+        'dnsblThreshold': json['dnsbl_threshold'] == null ? undefined : BigInt(json['dnsbl_threshold']),
         
-        'dwarning': json['dwarning'] == null ? undefined : json['dwarning'],
+        'dwarning': json['dwarning'] == null ? undefined : BigInt(json['dwarning']),
         
         'extPort': json['ext_port'] == null ? undefined : json['ext_port'],
         
@@ -431,9 +431,9 @@ export function ConfigMailUpdateMailSectionRequestFromJSONTyped(json: any, ignor
         
         'maxSmtpdOut': json['max_smtpd_out'] == null ? undefined : json['max_smtpd_out'],
         
-        'maxsize': json['maxsize'] == null ? undefined : json['maxsize'],
+        'maxsize': json['maxsize'] == null ? undefined : BigInt(json['maxsize']),
         
-        'messageRateLimit': json['message_rate_limit'] == null ? undefined : json['message_rate_limit'],
+        'messageRateLimit': json['message_rate_limit'] == null ? undefined : BigInt(json['message_rate_limit']),
         
         'ndrOnBlock': json['ndr_on_block'] == null ? undefined : PmgBooleanFromJSON(json['ndr_on_block']),
         
@@ -486,9 +486,9 @@ export function ConfigMailUpdateMailSectionRequestToJSONTyped(value?: ConfigMail
         
         'before_queue_filtering': PmgBooleanToJSON(value['beforeQueueFiltering']),
         
-        'conn_count_limit': value['connCountLimit'],
+        'conn_count_limit': value['connCountLimit'] == null ? undefined : String(value['connCountLimit']),
         
-        'conn_rate_limit': value['connRateLimit'],
+        'conn_rate_limit': value['connRateLimit'] == null ? undefined : String(value['connRateLimit']),
         
         'delete': value['_delete'],
         
@@ -496,9 +496,9 @@ export function ConfigMailUpdateMailSectionRequestToJSONTyped(value?: ConfigMail
         
         'dnsbl_sites': value['dnsblSites'],
         
-        'dnsbl_threshold': value['dnsblThreshold'],
+        'dnsbl_threshold': value['dnsblThreshold'] == null ? undefined : String(value['dnsblThreshold']),
         
-        'dwarning': value['dwarning'],
+        'dwarning': value['dwarning'] == null ? undefined : String(value['dwarning']),
         
         'ext_port': value['extPort'],
         
@@ -526,9 +526,9 @@ export function ConfigMailUpdateMailSectionRequestToJSONTyped(value?: ConfigMail
         
         'max_smtpd_out': value['maxSmtpdOut'],
         
-        'maxsize': value['maxsize'],
+        'maxsize': value['maxsize'] == null ? undefined : String(value['maxsize']),
         
-        'message_rate_limit': value['messageRateLimit'],
+        'message_rate_limit': value['messageRateLimit'] == null ? undefined : String(value['messageRateLimit']),
         
         'ndr_on_block': PmgBooleanToJSON(value['ndrOnBlock']),
         

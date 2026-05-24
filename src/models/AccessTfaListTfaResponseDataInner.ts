@@ -47,7 +47,7 @@ export interface AccessTfaListTfaResponseDataInner {
      * @type {number}
      * @memberof AccessTfaListTfaResponseDataInner
      */
-    tfaLockedUntil?: number;
+    tfaLockedUntil?: bigint | string | number;
 
     /**
      * True if the user is currently locked out of TOTP factors.
@@ -94,7 +94,7 @@ export function AccessTfaListTfaResponseDataInnerFromJSONTyped(json: any, ignore
         
         'entries': ((json['entries'] as Array<any>).map(AccessTfaListTfaResponseDataInnerEntriesInnerFromJSON)),
         
-        'tfaLockedUntil': json['tfa-locked-until'] == null ? undefined : json['tfa-locked-until'],
+        'tfaLockedUntil': json['tfa-locked-until'] == null ? undefined : BigInt(json['tfa-locked-until']),
         
         'totpLocked': json['totp-locked'] == null ? undefined : PmgBooleanFromJSON(json['totp-locked']),
         
@@ -117,7 +117,7 @@ export function AccessTfaListTfaResponseDataInnerToJSONTyped(value?: AccessTfaLi
         
         'entries': ((value['entries'] as Array<any>).map(AccessTfaListTfaResponseDataInnerEntriesInnerToJSON)),
         
-        'tfa-locked-until': value['tfaLockedUntil'],
+        'tfa-locked-until': value['tfaLockedUntil'] == null ? undefined : String(value['tfaLockedUntil']),
         
         'totp-locked': PmgBooleanToJSON(value['totpLocked']),
         

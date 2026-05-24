@@ -89,7 +89,7 @@ export interface ConfigSpamquarUpdateSpamquarSectionRequest {
      * @type {number}
      * @memberof ConfigSpamquarUpdateSpamquarSectionRequest
      */
-    lifetime?: number;
+    lifetime?: bigint | string | number;
 
     /**
      * Text for 'From' header in daily spam report mails.
@@ -178,7 +178,7 @@ export function ConfigSpamquarUpdateSpamquarSectionRequestFromJSONTyped(json: an
         
         'hostname': json['hostname'] == null ? undefined : json['hostname'],
         
-        'lifetime': json['lifetime'] == null ? undefined : json['lifetime'],
+        'lifetime': json['lifetime'] == null ? undefined : BigInt(json['lifetime']),
         
         'mailfrom': json['mailfrom'] == null ? undefined : json['mailfrom'],
         
@@ -217,7 +217,7 @@ export function ConfigSpamquarUpdateSpamquarSectionRequestToJSONTyped(value?: Co
         
         'hostname': value['hostname'],
         
-        'lifetime': value['lifetime'],
+        'lifetime': value['lifetime'] == null ? undefined : String(value['lifetime']),
         
         'mailfrom': value['mailfrom'],
         

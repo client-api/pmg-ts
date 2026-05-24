@@ -32,7 +32,7 @@ export interface QuarantineListattachmentsResponseDataInner {
      * @type {number}
      * @memberof QuarantineListattachmentsResponseDataInner
      */
-    id: number;
+    id: bigint | string | number;
 
     /**
      * Raw email header data.
@@ -46,7 +46,7 @@ export interface QuarantineListattachmentsResponseDataInner {
      * @type {number}
      * @memberof QuarantineListattachmentsResponseDataInner
      */
-    size: number;
+    size: bigint | string | number;
 
 }
 
@@ -79,11 +79,11 @@ export function QuarantineListattachmentsResponseDataInnerFromJSONTyped(json: an
         
         'contentType': json['content-type'],
         
-        'id': json['id'],
+        'id': BigInt(json['id']),
         
         'name': json['name'],
         
-        'size': json['size'],
+        'size': BigInt(json['size']),
         
     };
 }
@@ -102,11 +102,11 @@ export function QuarantineListattachmentsResponseDataInnerToJSONTyped(value?: Qu
         
         'content-type': value['contentType'],
         
-        'id': value['id'],
+        'id': String(value['id']),
         
         'name': value['name'],
         
-        'size': value['size'],
+        'size': String(value['size']),
         
     };
 }

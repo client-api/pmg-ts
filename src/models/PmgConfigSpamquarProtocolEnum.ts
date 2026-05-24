@@ -40,7 +40,9 @@ export function PmgConfigSpamquarProtocolEnumFromJSON(json: any): PmgConfigSpamq
 }
 
 export function PmgConfigSpamquarProtocolEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigSpamquarProtocolEnum {
+
     return json as PmgConfigSpamquarProtocolEnum;
+
 }
 
 export function PmgConfigSpamquarProtocolEnumToJSON(value?: PmgConfigSpamquarProtocolEnum | null): any {

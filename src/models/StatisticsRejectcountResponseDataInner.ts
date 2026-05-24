@@ -25,28 +25,28 @@ export interface StatisticsRejectcountResponseDataInner {
      * @type {number}
      * @memberof StatisticsRejectcountResponseDataInner
      */
-    index: number;
+    index: bigint | string | number;
 
     /**
      * PREGREET reject count.
      * @type {number}
      * @memberof StatisticsRejectcountResponseDataInner
      */
-    pregreetRejects: number;
+    pregreetRejects: bigint | string | number;
 
     /**
      * RBL reject count.
      * @type {number}
      * @memberof StatisticsRejectcountResponseDataInner
      */
-    rblRejects: number;
+    rblRejects: bigint | string | number;
 
     /**
      * Time (Unix epoch).
      * @type {number}
      * @memberof StatisticsRejectcountResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
 }
 
@@ -77,13 +77,13 @@ export function StatisticsRejectcountResponseDataInnerFromJSONTyped(json: any, i
     return {
         
         
-        'index': json['index'],
+        'index': BigInt(json['index']),
         
-        'pregreetRejects': json['pregreet_rejects'],
+        'pregreetRejects': BigInt(json['pregreet_rejects']),
         
-        'rblRejects': json['rbl_rejects'],
+        'rblRejects': BigInt(json['rbl_rejects']),
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
     };
 }
@@ -100,13 +100,13 @@ export function StatisticsRejectcountResponseDataInnerToJSONTyped(value?: Statis
     return {
         
         
-        'index': value['index'],
+        'index': String(value['index']),
         
-        'pregreet_rejects': value['pregreetRejects'],
+        'pregreet_rejects': String(value['pregreetRejects']),
         
-        'rbl_rejects': value['rblRejects'],
+        'rbl_rejects': String(value['rblRejects']),
         
-        'time': value['time'],
+        'time': String(value['time']),
         
     };
 }

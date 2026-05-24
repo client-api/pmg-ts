@@ -1,7 +1,5 @@
-.gitignore
 .npmignore
 README.md
-package.json
 src/apis/AccessApi.ts
 src/apis/AccessAuthRealmApi.ts
 src/apis/AccessOidcApi.ts
@@ -716,4 +714,3 @@ src/models/VersionVersionResponseData.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.esm.json
-tsconfig.json

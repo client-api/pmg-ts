@@ -40,7 +40,9 @@ export function PmgNodesCertificatesTypeEnumFromJSON(json: any): PmgNodesCertifi
 }
 
 export function PmgNodesCertificatesTypeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesCertificatesTypeEnum {
+
     return json as PmgNodesCertificatesTypeEnum;
+
 }
 
 export function PmgNodesCertificatesTypeEnumToJSON(value?: PmgNodesCertificatesTypeEnum | null): any {

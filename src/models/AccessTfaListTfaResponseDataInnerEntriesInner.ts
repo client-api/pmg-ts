@@ -40,7 +40,7 @@ export interface AccessTfaListTfaResponseDataInnerEntriesInner {
      * @type {number}
      * @memberof AccessTfaListTfaResponseDataInnerEntriesInner
      */
-    created: number;
+    created: bigint | string | number;
 
     /**
      * User chosen description for this entry.
@@ -102,7 +102,7 @@ export function AccessTfaListTfaResponseDataInnerEntriesInnerFromJSONTyped(json:
     return {
         
         
-        'created': json['created'],
+        'created': BigInt(json['created']),
         
         'description': json['description'],
         
@@ -127,7 +127,7 @@ export function AccessTfaListTfaResponseDataInnerEntriesInnerToJSONTyped(value?:
     return {
         
         
-        'created': value['created'],
+        'created': String(value['created']),
         
         'description': value['description'],
         

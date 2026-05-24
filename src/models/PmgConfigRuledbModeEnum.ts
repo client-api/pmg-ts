@@ -41,7 +41,9 @@ export function PmgConfigRuledbModeEnumFromJSON(json: any): PmgConfigRuledbModeE
 }
 
 export function PmgConfigRuledbModeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigRuledbModeEnum {
+
     return json as PmgConfigRuledbModeEnum;
+
 }
 
 export function PmgConfigRuledbModeEnumToJSON(value?: PmgConfigRuledbModeEnum | null): any {

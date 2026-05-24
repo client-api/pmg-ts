@@ -32,7 +32,7 @@ export interface NodesClamavDatabaseStatusResponseDataInner {
      * @type {number}
      * @memberof NodesClamavDatabaseStatusResponseDataInner
      */
-    nsigs: number;
+    nsigs: bigint | string | number;
 
     /**
      * 
@@ -78,7 +78,7 @@ export function NodesClamavDatabaseStatusResponseDataInnerFromJSONTyped(json: an
         
         'buildTime': json['build_time'],
         
-        'nsigs': json['nsigs'],
+        'nsigs': BigInt(json['nsigs']),
         
         'type': json['type'],
         
@@ -101,7 +101,7 @@ export function NodesClamavDatabaseStatusResponseDataInnerToJSONTyped(value?: No
         
         'build_time': value['buildTime'],
         
-        'nsigs': value['nsigs'],
+        'nsigs': String(value['nsigs']),
         
         'type': value['type'],
         

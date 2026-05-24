@@ -25,7 +25,7 @@ export interface ConfigRuledbSpamfilterRequest {
      * @type {number}
      * @memberof ConfigRuledbSpamfilterRequest
      */
-    spamlevel: number;
+    spamlevel: bigint | string | number;
 
 }
 
@@ -50,7 +50,7 @@ export function ConfigRuledbSpamfilterRequestFromJSONTyped(json: any, ignoreDisc
     return {
         
         
-        'spamlevel': json['spamlevel'],
+        'spamlevel': BigInt(json['spamlevel']),
         
     };
 }
@@ -67,7 +67,7 @@ export function ConfigRuledbSpamfilterRequestToJSONTyped(value?: ConfigRuledbSpa
     return {
         
         
-        'spamlevel': value['spamlevel'],
+        'spamlevel': String(value['spamlevel']),
         
     };
 }

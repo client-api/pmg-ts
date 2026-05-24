@@ -40,7 +40,11 @@ export function PmgBooleanFromJSON(json: any): PmgBoolean {
 }
 
 export function PmgBooleanFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgBoolean {
+    if (typeof json === 'string') return (json === '0' ? 0 : 1) as PmgBoolean;
+    if (typeof json === 'boolean') return (json ? 1 : 0) as PmgBoolean;
+    if (typeof json === 'number') return (json === 0 ? 0 : 1) as PmgBoolean;
     return json as PmgBoolean;
+
 }
 
 export function PmgBooleanToJSON(value?: PmgBoolean | null): any {

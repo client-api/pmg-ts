@@ -57,7 +57,9 @@ export function PmgServiceEnumFromJSON(json: any): PmgServiceEnum {
 }
 
 export function PmgServiceEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgServiceEnum {
+
     return json as PmgServiceEnum;
+
 }
 
 export function PmgServiceEnumToJSON(value?: PmgServiceEnum | null): any {

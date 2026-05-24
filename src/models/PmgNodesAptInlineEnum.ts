@@ -40,7 +40,9 @@ export function PmgNodesAptInlineEnumFromJSON(json: any): PmgNodesAptInlineEnum 
 }
 
 export function PmgNodesAptInlineEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesAptInlineEnum {
+
     return json as PmgNodesAptInlineEnum;
+
 }
 
 export function PmgNodesAptInlineEnumToJSON(value?: PmgNodesAptInlineEnum | null): any {

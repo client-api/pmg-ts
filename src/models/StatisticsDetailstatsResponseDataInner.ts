@@ -68,7 +68,7 @@ export interface StatisticsDetailstatsResponseDataInner {
      * @type {number}
      * @memberof StatisticsDetailstatsResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Virus name.
@@ -121,7 +121,7 @@ export function StatisticsDetailstatsResponseDataInnerFromJSONTyped(json: any, i
         
         'spamlevel': json['spamlevel'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'virusinfo': json['virusinfo'] == null ? undefined : json['virusinfo'],
         
@@ -150,7 +150,7 @@ export function StatisticsDetailstatsResponseDataInnerToJSONTyped(value?: Statis
         
         'spamlevel': value['spamlevel'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'virusinfo': value['virusinfo'],
         

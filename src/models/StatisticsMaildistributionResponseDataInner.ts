@@ -60,7 +60,7 @@ export interface StatisticsMaildistributionResponseDataInner {
      * @type {number}
      * @memberof StatisticsMaildistributionResponseDataInner
      */
-    index: number;
+    index: bigint | string | number;
 
     /**
      * Incoming spam mails (spamcount_in + glcount + spfcount).
@@ -141,7 +141,7 @@ export function StatisticsMaildistributionResponseDataInnerFromJSONTyped(json: a
         
         'countOut': json['count_out'],
         
-        'index': json['index'],
+        'index': BigInt(json['index']),
         
         'spamcountIn': json['spamcount_in'],
         
@@ -176,7 +176,7 @@ export function StatisticsMaildistributionResponseDataInnerToJSONTyped(value?: S
         
         'count_out': value['countOut'],
         
-        'index': value['index'],
+        'index': String(value['index']),
         
         'spamcount_in': value['spamcountIn'],
         

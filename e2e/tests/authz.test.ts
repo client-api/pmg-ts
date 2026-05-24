@@ -87,10 +87,11 @@ describe('authz', () => {
     // PMG's "effective permissions" surface is the user's role field;
     // the suite confirms the SDK preserves it across the round-trip.
     expect(res.data?.role).toBe('audit');
-    // PMG reports `enable` on the wire as a numeric-string ("1") rather
-    // than a JSON number; the generated `PmgBoolean` type declares it as
-    // `0|1` but the SDK doesn't coerce. Accept either shape — the
-    // contract is "truthy when enabled". Tracked upstream.
+    // PMG's `/access/users/{userid}` response data is typed as `object`
+    // (unstructured) in the spec, so the `PmgBooleanFromJSON` coerce
+    // doesn't fire for `enable` — the wire-string `"1"` passes through
+    // verbatim. Accept either shape; the contract is "truthy when
+    // enabled". Tracked upstream as a spec-level typing gap.
     expect(['1', 1]).toContain(res.data?.enable);
   });
 });

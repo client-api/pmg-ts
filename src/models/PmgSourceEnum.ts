@@ -40,7 +40,9 @@ export function PmgSourceEnumFromJSON(json: any): PmgSourceEnum {
 }
 
 export function PmgSourceEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgSourceEnum {
+
     return json as PmgSourceEnum;
+
 }
 
 export function PmgSourceEnumToJSON(value?: PmgSourceEnum | null): any {

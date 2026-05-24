@@ -47,7 +47,7 @@ export interface NodesAptChangeRepositoryRequest {
      * @type {number}
      * @memberof NodesAptChangeRepositoryRequest
      */
-    index: number;
+    index: bigint | string | number;
 
     /**
      * Path to the containing file.
@@ -89,7 +89,7 @@ export function NodesAptChangeRepositoryRequestFromJSONTyped(json: any, ignoreDi
         
         'enabled': json['enabled'] == null ? undefined : PmgBooleanFromJSON(json['enabled']),
         
-        'index': json['index'],
+        'index': BigInt(json['index']),
         
         'path': json['path'],
         
@@ -112,7 +112,7 @@ export function NodesAptChangeRepositoryRequestToJSONTyped(value?: NodesAptChang
         
         'enabled': PmgBooleanToJSON(value['enabled']),
         
-        'index': value['index'],
+        'index': String(value['index']),
         
         'path': value['path'],
         

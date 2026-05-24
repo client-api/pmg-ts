@@ -40,7 +40,9 @@ export function PmgPositionEnumFromJSON(json: any): PmgPositionEnum {
 }
 
 export function PmgPositionEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgPositionEnum {
+
     return json as PmgPositionEnum;
+
 }
 
 export function PmgPositionEnumToJSON(value?: PmgPositionEnum | null): any {

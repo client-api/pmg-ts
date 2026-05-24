@@ -41,7 +41,9 @@ export function PmgModeEnumFromJSON(json: any): PmgModeEnum {
 }
 
 export function PmgModeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgModeEnum {
+
     return json as PmgModeEnum;
+
 }
 
 export function PmgModeEnumToJSON(value?: PmgModeEnum | null): any {

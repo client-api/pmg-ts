@@ -157,7 +157,7 @@ export interface ConfigAdminUpdateAdminSectionRequest {
      * @type {number}
      * @memberof ConfigAdminUpdateAdminSectionRequest
      */
-    statlifetime?: number;
+    statlifetime?: bigint | string | number;
 
 }
 
@@ -231,7 +231,7 @@ export function ConfigAdminUpdateAdminSectionRequestFromJSONTyped(json: any, ign
         
         'httpProxy': json['http_proxy'] == null ? undefined : json['http_proxy'],
         
-        'statlifetime': json['statlifetime'] == null ? undefined : json['statlifetime'],
+        'statlifetime': json['statlifetime'] == null ? undefined : BigInt(json['statlifetime']),
         
     };
 }
@@ -280,7 +280,7 @@ export function ConfigAdminUpdateAdminSectionRequestToJSONTyped(value?: ConfigAd
         
         'http_proxy': value['httpProxy'],
         
-        'statlifetime': value['statlifetime'],
+        'statlifetime': value['statlifetime'] == null ? undefined : String(value['statlifetime']),
         
     };
 }

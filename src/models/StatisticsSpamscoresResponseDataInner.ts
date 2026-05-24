@@ -25,7 +25,7 @@ export interface StatisticsSpamscoresResponseDataInner {
      * @type {number}
      * @memberof StatisticsSpamscoresResponseDataInner
      */
-    count: number;
+    count: bigint | string | number;
 
     /**
      * Spam level.
@@ -68,7 +68,7 @@ export function StatisticsSpamscoresResponseDataInnerFromJSONTyped(json: any, ig
     return {
         
         
-        'count': json['count'],
+        'count': BigInt(json['count']),
         
         'level': json['level'],
         
@@ -89,7 +89,7 @@ export function StatisticsSpamscoresResponseDataInnerToJSONTyped(value?: Statist
     return {
         
         
-        'count': value['count'],
+        'count': String(value['count']),
         
         'level': value['level'],
         

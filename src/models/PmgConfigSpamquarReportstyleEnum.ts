@@ -42,7 +42,9 @@ export function PmgConfigSpamquarReportstyleEnumFromJSON(json: any): PmgConfigSp
 }
 
 export function PmgConfigSpamquarReportstyleEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigSpamquarReportstyleEnum {
+
     return json as PmgConfigSpamquarReportstyleEnum;
+
 }
 
 export function PmgConfigSpamquarReportstyleEnumToJSON(value?: PmgConfigSpamquarReportstyleEnum | null): any {

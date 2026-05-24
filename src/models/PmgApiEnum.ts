@@ -195,7 +195,9 @@ export function PmgApiEnumFromJSON(json: any): PmgApiEnum {
 }
 
 export function PmgApiEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgApiEnum {
+
     return json as PmgApiEnum;
+
 }
 
 export function PmgApiEnumToJSON(value?: PmgApiEnum | null): any {

@@ -40,7 +40,9 @@ export function PmgConfigMailVerifyreceiversEnumFromJSON(json: any): PmgConfigMa
 }
 
 export function PmgConfigMailVerifyreceiversEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigMailVerifyreceiversEnum {
+
     return json as PmgConfigMailVerifyreceiversEnum;
+
 }
 
 export function PmgConfigMailVerifyreceiversEnumToJSON(value?: PmgConfigMailVerifyreceiversEnum | null): any {

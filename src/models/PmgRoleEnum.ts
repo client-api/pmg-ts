@@ -43,7 +43,9 @@ export function PmgRoleEnumFromJSON(json: any): PmgRoleEnum {
 }
 
 export function PmgRoleEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgRoleEnum {
+
     return json as PmgRoleEnum;
+
 }
 
 export function PmgRoleEnumToJSON(value?: PmgRoleEnum | null): any {

@@ -41,7 +41,9 @@ export function PmgConfigSpamquarAuthmodeEnumFromJSON(json: any): PmgConfigSpamq
 }
 
 export function PmgConfigSpamquarAuthmodeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigSpamquarAuthmodeEnum {
+
     return json as PmgConfigSpamquarAuthmodeEnum;
+
 }
 
 export function PmgConfigSpamquarAuthmodeEnumToJSON(value?: PmgConfigSpamquarAuthmodeEnum | null): any {

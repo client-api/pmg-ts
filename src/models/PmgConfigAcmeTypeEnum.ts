@@ -40,7 +40,9 @@ export function PmgConfigAcmeTypeEnumFromJSON(json: any): PmgConfigAcmeTypeEnum 
 }
 
 export function PmgConfigAcmeTypeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigAcmeTypeEnum {
+
     return json as PmgConfigAcmeTypeEnum;
+
 }
 
 export function PmgConfigAcmeTypeEnumToJSON(value?: PmgConfigAcmeTypeEnum | null): any {

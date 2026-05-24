@@ -25,7 +25,7 @@ export interface StatisticsVirusResponseDataInner {
      * @type {number}
      * @memberof StatisticsVirusResponseDataInner
      */
-    count: number;
+    count: bigint | string | number;
 
     /**
      * Virus name.
@@ -59,7 +59,7 @@ export function StatisticsVirusResponseDataInnerFromJSONTyped(json: any, ignoreD
     return {
         
         
-        'count': json['count'],
+        'count': BigInt(json['count']),
         
         'name': json['name'],
         
@@ -78,7 +78,7 @@ export function StatisticsVirusResponseDataInnerToJSONTyped(value?: StatisticsVi
     return {
         
         
-        'count': value['count'],
+        'count': String(value['count']),
         
         'name': value['name'],
         

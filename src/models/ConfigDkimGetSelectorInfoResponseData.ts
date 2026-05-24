@@ -25,7 +25,7 @@ export interface ConfigDkimGetSelectorInfoResponseData {
      * @type {number}
      * @memberof ConfigDkimGetSelectorInfoResponseData
      */
-    keysize?: number;
+    keysize?: bigint | string | number;
 
     /**
      * 
@@ -65,7 +65,7 @@ export function ConfigDkimGetSelectorInfoResponseDataFromJSONTyped(json: any, ig
     return {
         
         
-        'keysize': json['keysize'] == null ? undefined : json['keysize'],
+        'keysize': json['keysize'] == null ? undefined : BigInt(json['keysize']),
         
         'record': json['record'] == null ? undefined : json['record'],
         
@@ -86,7 +86,7 @@ export function ConfigDkimGetSelectorInfoResponseDataToJSONTyped(value?: ConfigD
     return {
         
         
-        'keysize': value['keysize'],
+        'keysize': value['keysize'] == null ? undefined : String(value['keysize']),
         
         'record': value['record'],
         

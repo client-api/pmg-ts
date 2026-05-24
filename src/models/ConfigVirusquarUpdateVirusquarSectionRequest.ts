@@ -54,7 +54,7 @@ export interface ConfigVirusquarUpdateVirusquarSectionRequest {
      * @type {number}
      * @memberof ConfigVirusquarUpdateVirusquarSectionRequest
      */
-    lifetime?: number;
+    lifetime?: bigint | string | number;
 
     /**
      * Allow to view images.
@@ -97,7 +97,7 @@ export function ConfigVirusquarUpdateVirusquarSectionRequestFromJSONTyped(json: 
         
         'digest': json['digest'] == null ? undefined : json['digest'],
         
-        'lifetime': json['lifetime'] == null ? undefined : json['lifetime'],
+        'lifetime': json['lifetime'] == null ? undefined : BigInt(json['lifetime']),
         
         'viewimages': json['viewimages'] == null ? undefined : PmgBooleanFromJSON(json['viewimages']),
         
@@ -122,7 +122,7 @@ export function ConfigVirusquarUpdateVirusquarSectionRequestToJSONTyped(value?: 
         
         'digest': value['digest'],
         
-        'lifetime': value['lifetime'],
+        'lifetime': value['lifetime'] == null ? undefined : String(value['lifetime']),
         
         'viewimages': PmgBooleanToJSON(value['viewimages']),
         

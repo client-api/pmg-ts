@@ -40,7 +40,9 @@ export function PmgQuarantineListEnumFromJSON(json: any): PmgQuarantineListEnum 
 }
 
 export function PmgQuarantineListEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgQuarantineListEnum {
+
     return json as PmgQuarantineListEnum;
+
 }
 
 export function PmgQuarantineListEnumToJSON(value?: PmgQuarantineListEnum | null): any {

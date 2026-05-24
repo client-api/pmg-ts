@@ -68,14 +68,14 @@ export interface NodesStatusStatusResponseData {
      * @type {number}
      * @memberof NodesStatusStatusResponseData
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * The uptime of the system in seconds.
      * @type {number}
      * @memberof NodesStatusStatusResponseData
      */
-    uptime: number;
+    uptime: bigint | string | number;
 
 }
 
@@ -116,9 +116,9 @@ export function NodesStatusStatusResponseDataFromJSONTyped(json: any, ignoreDisc
         
         'insync': PmgBooleanFromJSON(json['insync']),
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
-        'uptime': json['uptime'],
+        'uptime': BigInt(json['uptime']),
         
     };
 }
@@ -141,9 +141,9 @@ export function NodesStatusStatusResponseDataToJSONTyped(value?: NodesStatusStat
         
         'insync': PmgBooleanToJSON(value['insync']),
         
-        'time': value['time'],
+        'time': String(value['time']),
         
-        'uptime': value['uptime'],
+        'uptime': String(value['uptime']),
         
     };
 }

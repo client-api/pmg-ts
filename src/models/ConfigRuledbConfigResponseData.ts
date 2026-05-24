@@ -40,14 +40,14 @@ export interface ConfigRuledbConfigResponseData {
      * @type {number}
      * @memberof ConfigRuledbConfigResponseData
      */
-    direction: number;
+    direction: bigint | string | number;
 
     /**
      * 
      * @type {number}
      * @memberof ConfigRuledbConfigResponseData
      */
-    id: number;
+    id: bigint | string | number;
 
     /**
      * 
@@ -61,7 +61,7 @@ export interface ConfigRuledbConfigResponseData {
      * @type {number}
      * @memberof ConfigRuledbConfigResponseData
      */
-    priority: number;
+    priority: bigint | string | number;
 
 }
 
@@ -98,13 +98,13 @@ export function ConfigRuledbConfigResponseDataFromJSONTyped(json: any, ignoreDis
         
         'active': PmgBooleanFromJSON(json['active']),
         
-        'direction': json['direction'],
+        'direction': BigInt(json['direction']),
         
-        'id': json['id'],
+        'id': BigInt(json['id']),
         
         'name': json['name'],
         
-        'priority': json['priority'],
+        'priority': BigInt(json['priority']),
         
     };
 }
@@ -123,13 +123,13 @@ export function ConfigRuledbConfigResponseDataToJSONTyped(value?: ConfigRuledbCo
         
         'active': PmgBooleanToJSON(value['active']),
         
-        'direction': value['direction'],
+        'direction': String(value['direction']),
         
-        'id': value['id'],
+        'id': String(value['id']),
         
         'name': value['name'],
         
-        'priority': value['priority'],
+        'priority': String(value['priority']),
         
     };
 }

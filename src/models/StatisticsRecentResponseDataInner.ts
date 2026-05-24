@@ -60,7 +60,7 @@ export interface StatisticsRecentResponseDataInner {
      * @type {number}
      * @memberof StatisticsRecentResponseDataInner
      */
-    index: number;
+    index: bigint | string | number;
 
     /**
      * Overall spam mail count (in and out).
@@ -88,7 +88,7 @@ export interface StatisticsRecentResponseDataInner {
      * @type {number}
      * @memberof StatisticsRecentResponseDataInner
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Timespan in seconds for one data point
@@ -168,7 +168,7 @@ export function StatisticsRecentResponseDataInnerFromJSONTyped(json: any, ignore
         
         'countOut': json['count_out'],
         
-        'index': json['index'],
+        'index': BigInt(json['index']),
         
         'spam': json['spam'],
         
@@ -176,7 +176,7 @@ export function StatisticsRecentResponseDataInnerFromJSONTyped(json: any, ignore
         
         'spamOut': json['spam_out'],
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'timespan': json['timespan'],
         
@@ -209,7 +209,7 @@ export function StatisticsRecentResponseDataInnerToJSONTyped(value?: StatisticsR
         
         'count_out': value['countOut'],
         
-        'index': value['index'],
+        'index': String(value['index']),
         
         'spam': value['spam'],
         
@@ -217,7 +217,7 @@ export function StatisticsRecentResponseDataInnerToJSONTyped(value?: StatisticsR
         
         'spam_out': value['spamOut'],
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'timespan': value['timespan'],
         

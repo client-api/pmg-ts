@@ -44,7 +44,9 @@ export function PmgQuarantineContentActionEnumFromJSON(json: any): PmgQuarantine
 }
 
 export function PmgQuarantineContentActionEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgQuarantineContentActionEnum {
+
     return json as PmgQuarantineContentActionEnum;
+
 }
 
 export function PmgQuarantineContentActionEnumToJSON(value?: PmgQuarantineContentActionEnum | null): any {

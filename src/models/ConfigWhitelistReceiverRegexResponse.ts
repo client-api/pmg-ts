@@ -25,7 +25,7 @@ export interface ConfigWhitelistReceiverRegexResponse {
      * @type {number}
      * @memberof ConfigWhitelistReceiverRegexResponse
      */
-    data: number;
+    data: bigint | string | number;
 
     /**
      * Optional total count, present for paginated list responses.
@@ -66,7 +66,7 @@ export function ConfigWhitelistReceiverRegexResponseFromJSONTyped(json: any, ign
     return {
         
         
-        'data': json['data'],
+        'data': BigInt(json['data']),
         
         'total': json['total'] == null ? undefined : json['total'],
         
@@ -87,7 +87,7 @@ export function ConfigWhitelistReceiverRegexResponseToJSONTyped(value?: ConfigWh
     return {
         
         
-        'data': value['data'],
+        'data': String(value['data']),
         
         'total': value['total'],
         

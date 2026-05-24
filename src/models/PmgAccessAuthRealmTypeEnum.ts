@@ -41,7 +41,9 @@ export function PmgAccessAuthRealmTypeEnumFromJSON(json: any): PmgAccessAuthReal
 }
 
 export function PmgAccessAuthRealmTypeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgAccessAuthRealmTypeEnum {
+
     return json as PmgAccessAuthRealmTypeEnum;
+
 }
 
 export function PmgAccessAuthRealmTypeEnumToJSON(value?: PmgAccessAuthRealmTypeEnum | null): any {

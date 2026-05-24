@@ -33,7 +33,7 @@ export interface NodesTasksReadTaskStatusResponseData {
      * @type {number}
      * @memberof NodesTasksReadTaskStatusResponseData
      */
-    pid: number;
+    pid: bigint | string | number;
 
     /**
      * 
@@ -69,7 +69,7 @@ export function NodesTasksReadTaskStatusResponseDataFromJSONTyped(json: any, ign
     return {
         
         
-        'pid': json['pid'],
+        'pid': BigInt(json['pid']),
         
         'status': PmgNodesTasksStatusEnumFromJSON(json['status']),
         
@@ -88,7 +88,7 @@ export function NodesTasksReadTaskStatusResponseDataToJSONTyped(value?: NodesTas
     return {
         
         
-        'pid': value['pid'],
+        'pid': String(value['pid']),
         
         'status': PmgNodesTasksStatusEnumToJSON(value['status']),
         

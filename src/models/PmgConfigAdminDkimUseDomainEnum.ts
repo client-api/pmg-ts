@@ -40,7 +40,9 @@ export function PmgConfigAdminDkimUseDomainEnumFromJSON(json: any): PmgConfigAdm
 }
 
 export function PmgConfigAdminDkimUseDomainEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigAdminDkimUseDomainEnum {
+
     return json as PmgConfigAdminDkimUseDomainEnum;
+
 }
 
 export function PmgConfigAdminDkimUseDomainEnumToJSON(value?: PmgConfigAdminDkimUseDomainEnum | null): any {

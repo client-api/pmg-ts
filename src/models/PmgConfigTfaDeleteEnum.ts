@@ -42,7 +42,9 @@ export function PmgConfigTfaDeleteEnumFromJSON(json: any): PmgConfigTfaDeleteEnu
 }
 
 export function PmgConfigTfaDeleteEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgConfigTfaDeleteEnum {
+
     return json as PmgConfigTfaDeleteEnum;
+
 }
 
 export function PmgConfigTfaDeleteEnumToJSON(value?: PmgConfigTfaDeleteEnum | null): any {

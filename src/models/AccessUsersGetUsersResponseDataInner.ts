@@ -54,7 +54,7 @@ export interface AccessUsersGetUsersResponseDataInner {
      * @type {number}
      * @memberof AccessUsersGetUsersResponseDataInner
      */
-    tfaLockedUntil?: number;
+    tfaLockedUntil?: bigint | string | number;
 
     /**
      * True if the user is currently locked out of TOTP factors.
@@ -108,7 +108,7 @@ export function AccessUsersGetUsersResponseDataInnerFromJSONTyped(json: any, ign
         
         'role': json['role'],
         
-        'tfaLockedUntil': json['tfa-locked-until'] == null ? undefined : json['tfa-locked-until'],
+        'tfaLockedUntil': json['tfa-locked-until'] == null ? undefined : BigInt(json['tfa-locked-until']),
         
         'totpLocked': json['totp-locked'] == null ? undefined : PmgBooleanFromJSON(json['totp-locked']),
         
@@ -135,7 +135,7 @@ export function AccessUsersGetUsersResponseDataInnerToJSONTyped(value?: AccessUs
         
         'role': value['role'],
         
-        'tfa-locked-until': value['tfaLockedUntil'],
+        'tfa-locked-until': value['tfaLockedUntil'] == null ? undefined : String(value['tfaLockedUntil']),
         
         'totp-locked': PmgBooleanToJSON(value['totpLocked']),
         

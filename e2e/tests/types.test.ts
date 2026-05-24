@@ -26,22 +26,14 @@ describe('types', () => {
     await cleanupE2E(pmg);
   });
 
-  /**
-   * The generator emits `format: int64` fields as TypeScript `number`,
-   * which silently truncates at 2^53. The contract is "bigint must
-   * round-trip losslessly"; this assertion fails today.
-   *
-   * Marked `.fails()` so the suite stays green while the generator
-   * issue is open upstream — when the generator is fixed to emit
-   * `bigint`, this test starts succeeding and `.fails()` will
-   * (correctly) flip the suite red until the marker is removed.
-   *
-   * Upstream issue: bencurio/pve-openapi  (to file)
-   */
-  test.fails('SC-50: bigint int64 fields are typed as bigint, not number', async () => {
-    const res = await pmg.nodes().getNodes();
-    const nodes = (res as { data?: Array<{ uptime?: number | bigint }> }).data ?? [];
-    const uptime = nodes[0]?.uptime;
+  test('SC-50: bigint int64 fields are typed as bigint (no silent truncation)', async () => {
+    // PMG's `/nodes` list returns just `{ node }`; uptime lives on
+    // `/nodes/{node}/status`, exposed via `nodesStatus().status(...)`.
+    const list = await pmg.nodes().getNodes();
+    const node = (list as { data?: Array<{ node?: string }> }).data?.[0]?.node;
+    expect(node).toBeTruthy();
+    const res = await pmg.nodesStatus().status({ node: node! });
+    const uptime = (res as { data?: { uptime?: bigint } }).data?.uptime;
     expect(uptime).toBeDefined();
     expect(typeof uptime).toBe('bigint');
   });

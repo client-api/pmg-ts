@@ -25,14 +25,14 @@ export interface NodesTimeTimeResponseData {
      * @type {number}
      * @memberof NodesTimeTimeResponseData
      */
-    localtime: number;
+    localtime: bigint | string | number;
 
     /**
      * Seconds since 1970-01-01 00:00:00 UTC.
      * @type {number}
      * @memberof NodesTimeTimeResponseData
      */
-    time: number;
+    time: bigint | string | number;
 
     /**
      * Time zone
@@ -68,9 +68,9 @@ export function NodesTimeTimeResponseDataFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         
-        'localtime': json['localtime'],
+        'localtime': BigInt(json['localtime']),
         
-        'time': json['time'],
+        'time': BigInt(json['time']),
         
         'timezone': json['timezone'],
         
@@ -89,9 +89,9 @@ export function NodesTimeTimeResponseDataToJSONTyped(value?: NodesTimeTimeRespon
     return {
         
         
-        'localtime': value['localtime'],
+        'localtime': String(value['localtime']),
         
-        'time': value['time'],
+        'time': String(value['time']),
         
         'timezone': value['timezone'],
         

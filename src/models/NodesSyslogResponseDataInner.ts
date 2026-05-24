@@ -25,7 +25,7 @@ export interface NodesSyslogResponseDataInner {
      * @type {number}
      * @memberof NodesSyslogResponseDataInner
      */
-    n: number;
+    n: bigint | string | number;
 
     /**
      * Line text
@@ -59,7 +59,7 @@ export function NodesSyslogResponseDataInnerFromJSONTyped(json: any, ignoreDiscr
     return {
         
         
-        'n': json['n'],
+        'n': BigInt(json['n']),
         
         't': json['t'],
         
@@ -78,7 +78,7 @@ export function NodesSyslogResponseDataInnerToJSONTyped(value?: NodesSyslogRespo
     return {
         
         
-        'n': value['n'],
+        'n': String(value['n']),
         
         't': value['t'],
         

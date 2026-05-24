@@ -47,14 +47,14 @@ export interface ConfigLdapGetLdapResponseDataInner {
      * @type {number}
      * @memberof ConfigLdapGetLdapResponseDataInner
      */
-    gcount?: number;
+    gcount?: bigint | string | number;
 
     /**
      * 
      * @type {number}
      * @memberof ConfigLdapGetLdapResponseDataInner
      */
-    mcount?: number;
+    mcount?: bigint | string | number;
 
     /**
      * 
@@ -89,7 +89,7 @@ export interface ConfigLdapGetLdapResponseDataInner {
      * @type {number}
      * @memberof ConfigLdapGetLdapResponseDataInner
      */
-    ucount?: number;
+    ucount?: bigint | string | number;
 
 }
 
@@ -131,9 +131,9 @@ export function ConfigLdapGetLdapResponseDataInnerFromJSONTyped(json: any, ignor
         
         'disable': PmgBooleanFromJSON(json['disable']),
         
-        'gcount': json['gcount'] == null ? undefined : json['gcount'],
+        'gcount': json['gcount'] == null ? undefined : BigInt(json['gcount']),
         
-        'mcount': json['mcount'] == null ? undefined : json['mcount'],
+        'mcount': json['mcount'] == null ? undefined : BigInt(json['mcount']),
         
         'mode': json['mode'],
         
@@ -143,7 +143,7 @@ export function ConfigLdapGetLdapResponseDataInnerFromJSONTyped(json: any, ignor
         
         'server2': json['server2'] == null ? undefined : json['server2'],
         
-        'ucount': json['ucount'] == null ? undefined : json['ucount'],
+        'ucount': json['ucount'] == null ? undefined : BigInt(json['ucount']),
         
     };
 }
@@ -164,9 +164,9 @@ export function ConfigLdapGetLdapResponseDataInnerToJSONTyped(value?: ConfigLdap
         
         'disable': PmgBooleanToJSON(value['disable']),
         
-        'gcount': value['gcount'],
+        'gcount': value['gcount'] == null ? undefined : String(value['gcount']),
         
-        'mcount': value['mcount'],
+        'mcount': value['mcount'] == null ? undefined : String(value['mcount']),
         
         'mode': value['mode'],
         
@@ -176,7 +176,7 @@ export function ConfigLdapGetLdapResponseDataInnerToJSONTyped(value?: ConfigLdap
         
         'server2': value['server2'],
         
-        'ucount': value['ucount'],
+        'ucount': value['ucount'] == null ? undefined : String(value['ucount']),
         
     };
 }

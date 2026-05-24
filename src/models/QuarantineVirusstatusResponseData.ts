@@ -32,7 +32,7 @@ export interface QuarantineVirusstatusResponseData {
      * @type {number}
      * @memberof QuarantineVirusstatusResponseData
      */
-    count: number;
+    count: bigint | string | number;
 
     /**
      * Estimated disk space usage in MByte.
@@ -70,7 +70,7 @@ export function QuarantineVirusstatusResponseDataFromJSONTyped(json: any, ignore
         
         'avgbytes': json['avgbytes'],
         
-        'count': json['count'],
+        'count': BigInt(json['count']),
         
         'mbytes': json['mbytes'],
         
@@ -91,7 +91,7 @@ export function QuarantineVirusstatusResponseDataToJSONTyped(value?: QuarantineV
         
         'avgbytes': value['avgbytes'],
         
-        'count': value['count'],
+        'count': String(value['count']),
         
         'mbytes': value['mbytes'],
         

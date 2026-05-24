@@ -43,7 +43,9 @@ export function PmgNodesTimeframeEnumFromJSON(json: any): PmgNodesTimeframeEnum 
 }
 
 export function PmgNodesTimeframeEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesTimeframeEnum {
+
     return json as PmgNodesTimeframeEnum;
+
 }
 
 export function PmgNodesTimeframeEnumToJSON(value?: PmgNodesTimeframeEnum | null): any {

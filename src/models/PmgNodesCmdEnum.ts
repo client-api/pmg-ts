@@ -40,7 +40,9 @@ export function PmgNodesCmdEnumFromJSON(json: any): PmgNodesCmdEnum {
 }
 
 export function PmgNodesCmdEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgNodesCmdEnum {
+
     return json as PmgNodesCmdEnum;
+
 }
 
 export function PmgNodesCmdEnumToJSON(value?: PmgNodesCmdEnum | null): any {

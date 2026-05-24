@@ -54,7 +54,7 @@ export interface ConfigTransportGetTransportResponseDataInner {
      * @type {number}
      * @memberof ConfigTransportGetTransportResponseDataInner
      */
-    port: number;
+    port: bigint | string | number;
 
     /**
      * 
@@ -111,7 +111,7 @@ export function ConfigTransportGetTransportResponseDataInnerFromJSONTyped(json: 
         
         'host': json['host'],
         
-        'port': json['port'],
+        'port': BigInt(json['port']),
         
         'protocol': json['protocol'],
         
@@ -138,7 +138,7 @@ export function ConfigTransportGetTransportResponseDataInnerToJSONTyped(value?: 
         
         'host': value['host'],
         
-        'port': value['port'],
+        'port': String(value['port']),
         
         'protocol': value['protocol'],
         

@@ -25,7 +25,7 @@ export interface ConfigRuledbTimeframeResponse {
      * @type {number}
      * @memberof ConfigRuledbTimeframeResponse
      */
-    data: number;
+    data: bigint | string | number;
 
     /**
      * Optional total count, present for paginated list responses.
@@ -66,7 +66,7 @@ export function ConfigRuledbTimeframeResponseFromJSONTyped(json: any, ignoreDisc
     return {
         
         
-        'data': json['data'],
+        'data': BigInt(json['data']),
         
         'total': json['total'] == null ? undefined : json['total'],
         
@@ -87,7 +87,7 @@ export function ConfigRuledbTimeframeResponseToJSONTyped(value?: ConfigRuledbTim
     return {
         
         
-        'data': value['data'],
+        'data': String(value['data']),
         
         'total': value['total'],
         

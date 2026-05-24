@@ -40,7 +40,9 @@ export function PmgProtocolEnumFromJSON(json: any): PmgProtocolEnum {
 }
 
 export function PmgProtocolEnumFromJSONTyped(json: any, ignoreDiscriminator: boolean): PmgProtocolEnum {
+
     return json as PmgProtocolEnum;
+
 }
 
 export function PmgProtocolEnumToJSON(value?: PmgProtocolEnum | null): any {
